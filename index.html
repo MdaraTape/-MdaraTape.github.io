@@ -280,7 +280,11 @@
     .statix-card .tags{margin-top:20px;display:flex;flex-wrap:wrap;gap:8px}
     .statix-card .tags span{font-size:.8rem;color:var(--muted);border:1px solid var(--line);padding:5px 12px;border-radius:999px}
 
-    .skills{display:flex;flex-wrap:wrap;gap:12px}
+    /* Skills — grouped by category */
+    .skill-cats{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(22px,3vw,34px)}
+    .skill-cat h4{color:var(--accent-2);font-size:.78rem;letter-spacing:2px;text-transform:uppercase;
+      margin:0 0 14px;padding-bottom:10px;border-bottom:1px solid var(--line)}
+    .skills{display:flex;flex-wrap:wrap;gap:10px}
     .skills span{border:1px solid var(--line);background:var(--bg-soft);color:#d4dbe4;padding:11px 18px;border-radius:10px;
       font-size:.97rem;transition:border-color .2s,color .2s,transform .2s}
     .skills span:hover{border-color:var(--accent);color:#fff;transform:translateY(-2px)}
@@ -477,16 +481,42 @@
   <section id="skills">
     <div class="container reveal">
       <p class="kicker">Toolkit</p>
-      <h2 class="h2">Skills</h2>
-      <p class="sub">Technologies and practices I've exercised across my projects.</p>
-      <div class="skills">
-        <span>HTML &amp; CSS</span><span>SCSS</span><span>JavaScript (ES6+)</span><span>TypeScript</span>
-        <span>React</span><span>React Native</span><span>Next.js</span><span>Node.js</span><span>Express</span>
-        <span>Python</span><span>TensorFlow</span><span>PyTorch</span><span>OpenCV</span>
-        <span>REST APIs</span><span>WebSockets</span><span>PostgreSQL</span><span>MySQL</span><span>MongoDB</span><span>Firebase</span>
-        <span>OAuth &amp; Auth</span><span>Stripe payments</span><span>Geolocation &amp; maps</span>
-        <span>Data visualization</span><span>UX/UI patterns</span><span>Testing</span>
-        <span>CI/CD</span><span>Docker</span><span>Git &amp; GitHub</span><span>Offline-first UX</span>
+      <h2 class="h2">Skills &amp; Technologies</h2>
+      <p class="sub">The tools and practices I've worked with across my projects, grouped by area.</p>
+
+      <div class="skill-cats">
+        <div class="skill-cat">
+          <h4>Languages</h4>
+          <div class="skills"><span>JavaScript</span><span>TypeScript</span><span>Python</span><span>HTML</span><span>CSS</span></div>
+        </div>
+        <div class="skill-cat">
+          <h4>Mobile</h4>
+          <div class="skills"><span>React Native</span><span>Expo</span><span>Mobile-first UX</span><span>Push notifications</span></div>
+        </div>
+        <div class="skill-cat">
+          <h4>Frontend</h4>
+          <div class="skills"><span>React</span><span>Next.js</span><span>Responsive design</span><span>SCSS</span></div>
+        </div>
+        <div class="skill-cat">
+          <h4>Backend &amp; Data</h4>
+          <div class="skills"><span>Node.js</span><span>Express</span><span>REST APIs</span><span>Firebase</span><span>PostgreSQL</span><span>MongoDB</span><span>MySQL</span></div>
+        </div>
+        <div class="skill-cat">
+          <h4>AI &amp; Machine Learning</h4>
+          <div class="skills"><span>TensorFlow</span><span>PyTorch</span><span>OpenCV</span><span>Computer Vision</span></div>
+        </div>
+        <div class="skill-cat">
+          <h4>Auth &amp; Payments</h4>
+          <div class="skills"><span>OAuth</span><span>Role-based access</span><span>Stripe</span></div>
+        </div>
+        <div class="skill-cat">
+          <h4>Tools &amp; Workflow</h4>
+          <div class="skills"><span>Git &amp; GitHub</span><span>CI/CD</span><span>Docker</span><span>Agile</span></div>
+        </div>
+        <div class="skill-cat">
+          <h4>Soft Skills</h4>
+          <div class="skills"><span>Problem solving</span><span>Teamwork</span><span>Communication</span><span>Adaptability</span></div>
+        </div>
       </div>
     </div>
   </section>
