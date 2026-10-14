@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Tinerombo T Mudzimbasekwa — Portfolio</title>
+  <meta name="description" content="Portfolio website for Tinerombo T Mudzimbasekwa — software developer (web, mobile, ML)." />
+  <style>
+    :root{
+      --bg:#071018;            /* near black, cool */
+      --card:#0f1620;          /* dark card */
+      --muted:#8b9198;         /* gray text */
+      --beige:#e9dfd0;         /* soft beige */
+      --light:#ffffff;
+      --accent:#9fb7ff;        /* light blue accent */
+      --accent-2:#c6d4ff;      /* lighter blue */
+      --radius:14px;
+      --maxw:980px;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    html,body{height:100%}
+    body{
+      background:linear-gradient(180deg,var(--bg), #041018);
+      color:var(--light);
+      margin:0;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      padding:28px;
+      display:flex;
+      justify-content:center;
+    }
+    .wrap{max-width:var(--maxw);width:100%}
+    header{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:20px;
+    }
+    .brand h1{margin:0;font-size:1.6rem;color:var(--beige)}
+    .brand p{margin:6px 0 0 0;color:var(--muted);font-size:.95rem}
+    nav a{color:var(--accent);text-decoration:none;margin-left:12px;font-weight:600}
+    main{margin-top:22px;display:grid;grid-template-columns:1fr 340px;gap:26px}
+    @media(max-width:980px){ main{grid-template-columns:1fr} nav{display:none} }
+
+    /* left column content */
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.03)); padding:18px;border-radius:var(--radius);border:1px solid rgba(255,255,255,0.03)}
+    .section+ .section{margin-top:18px}
+
+    /* hero/about */
+    .about h2{color:var(--beige);margin:0 0 8px 0}
+    .about p{color:var(--muted);margin:0;font-size:1rem;line-height:1.5}
+
+    /* projects */
+    .projects-grid{display:grid;grid-template-columns:1fr;gap:14px;margin-top:10px}
+    .project{display:flex;gap:12px;align-items:flex-start;padding:12px;border-radius:12px;background:var(--card);border:1px solid rgba(255,255,255,0.02)}
+    .project .meta{color:var(--muted);font-size:.95rem}
+    .project .title{margin:0;color:var(--accent-2)}
+    .project img{width:160px;height:auto;border-radius:10px;object-fit:cover;background:#0b1220;box-shadow:0 6px 18px rgba(3,6,12,0.6)}
+    .project-gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-top:10px}
+    .project-gallery img{width:100%;height:170px;object-fit:cover;border-radius:10px;border:1px solid rgba(255,255,255,0.03)}
+
+    /* skills */
+    .skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-top:8px}
+    .skill-list{background:transparent;padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,0.02)}
+    .skill-list ul{list-style:none;padding:0;margin:0;color:var(--muted);font-size:.95rem}
+    .skill-list li{padding:6px 0;border-bottom:1px dashed rgba(255,255,255,0.02)}
+    .skill-list li:last-child{border-bottom:none}
+
+    /* right column (sidebar) */
+    aside{position:sticky;top:28px}
+    aside .box{margin-bottom:14px}
+    .muted{color:var(--muted);font-size:.95rem}
+    .contact a{color:var(--accent);text-decoration:none;word-break:break-word}
+    .section-title{color:var(--beige);margin:0 0 8px 0}
+
+    footer{margin-top:26px;color:var(--muted);font-size:.9rem;text-align:center}
+    .pill{display:inline-block;padding:6px 10px;border-radius:999px;background:rgba(159,183,255,0.08);color:var(--accent);font-weight:600;border:1px solid rgba(159,183,255,0.06)}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <h1>Tinerombo T Mudzimbasekwa</h1>
+        <p>Software developer • Web, Mobile & Machine Learning</p>
+      </div>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <div>
+        <!-- ABOUT / STORY -->
+        <section id="about" class="card section about">
+          <h2>About — My story</h2>
+          <p>
+            Hi — I'm Tinerombo. I build web and mobile apps and experiment with practical machine learning solutions.
+            I like clear interfaces, reliable features, and mobile‑first experiences that people actually enjoy using.
+            I’m currently studying Software Development (BSc) at IU International University of Applied Sciences (2024–Present).
+            (Short and honest — edit this to make it more “you”.)
+          </p>
+        </section>
+
+        <!-- PROJECTS -->
+        <section id="projects" class="card section">
+          <h2 class="section-title">Selected projects</h2>
+
+          <!-- The Barber Force — gallery -->
+          <article class="project" id="the-barber-force">
+            <img src="images/the-barber-force-1.png" alt="The Barber Force - landing">
+            <div>
+              <h3 class="title">The Barber Force</h3>
+              <p class="meta">Booking and service discovery app for barbershops and salon clients. Mobile-first flow with role selection, account creation, and booking checkout.</p>
+
+              <div class="project-gallery" style="margin-top:8px">
+                <!-- replace these images with the screenshots you provided -->
+                <img src="images/the-barber-force-1.png" alt="Barber Force screenshot 1">
+                <img src="images/the-barber-force-2.png" alt="Barber Force screenshot 2">
+                <img src="images/the-barber-force-3.png" alt="Barber Force screenshot 3">
+                <img src="images/the-barber-force-4.png" alt="Barber Force screenshot 4">
+              </div>
+
+              <div style="margin-top:10px">
+                <a class="pill" href="https://github.com/MdaraTape/the-barber-force" target="_blank" rel="noopener noreferrer">Repository</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Statix Electricity -->
+          <article class="project" id="statix-electricity" style="margin-top:12px">
+            <img src="images/statix-electricity.png" alt="Statix Electricity dashboard">
+            <div>
+              <h3 class="title">Statix Electricity</h3>
+              <p class="meta">Monitoring and maintenance dashboard for electrical networks — incident logging, alerting, and simple analytics to track faults and maintenance windows.</p>
+              <div style="margin-top:10px"><a class="pill" href="https://github.com/MdaraTape/statix-electricity" target="_blank" rel="noopener noreferrer">Repository</a></div>
+            </div>
+          </article>
+
+          <!-- Graduation Glamour -->
+          <article class="project" id="graduation-glamour" style="margin-top:12px">
+            <img src="images/graduation-glamour.png" alt="Graduation Glamour">
+            <div>
+              <h3 class="title">Graduation Glamour</h3>
+              <p class="meta">Event planning + e-commerce for graduation packages and photography bookings — gallery, package selection and checkout for organizers and customers.</p>
+              <div style="margin-top:10px"><a class="pill" href="https://github.com/MdaraTape/graduation-glamour" target="_blank" rel="noopener noreferrer">Repository</a></div>
+            </div>
+          </article>
+
+          <!-- Fatigue detection system -->
+          <article class="project" id="fatigue-detection" style="margin-top:12px">
+            <img src="images/fatigue-detection-system.png" alt="Fatigue Detection system">
+            <div>
+              <h3 class="title">Fatigue detection system</h3>
+              <p class="meta">Prototype computer-vision ML system that detects driver fatigue in real time using camera input and lightweight inference for road‑safety demos.</p>
+              <div style="margin-top:10px"><a class="pill" href="https://github.com/MdaraTape/fatigue-detection-system" target="_blank" rel="noopener noreferrer">Repository</a></div>
+            </div>
+          </article>
+
+          <!-- Agrivus -->
+          <article class="project" id="agrivus" style="margin-top:12px">
+            <img src="images/agrivus.png" alt="Agrivus">
+            <div>
+              <h3 class="title">Agrivus</h3>
+              <p class="meta">Agriculture management tool for smallholders: crop records, weather data, and practical advisory features — designed with low‑connectivity UX in mind.</p>
+              <div style="margin-top:10px"><a class="pill" href="https://github.com/MdaraTape/agrivus" target="_blank" rel="noopener noreferrer">Repository</a></div>
+            </div>
+          </article>
+
+        </section>
+
+        <!-- SKILLS -->
+        <section id="skills" class="card section">
+          <h2 class="section-title">Skills (exercised across projects)</h2>
+          <div class="skills-grid">
+            <div class="skill-list">
+              <ul>
+                <li>HTML, CSS (responsive, mobile-first), SCSS</li>
+                <li>JavaScript (ES6+), TypeScript</li>
+                <li>React, React Native, Next.js / client-side frameworks</li>
+                <li>Node.js, Express</li>
+                <li>Python — prototyping and ML code</li>
+                <li>Machine Learning: TensorFlow / PyTorch basics, OpenCV (computer vision)</li>
+                <li>REST APIs, WebSockets</li>
+                <li>Databases: PostgreSQL, MySQL, MongoDB, Firebase</li>
+                <li>Authentication & OAuth (Google sign-in), role-based access</li>
+                <li>Payment integration (Stripe / payment flows)</li>
+                <li>Geolocation, maps and pinning (workplace location)</li>
+                <li>Data visualization, analytics dashboards</li>
+                <li>UX/UI patterns, mobile onboarding, accessibility basics</li>
+                <li>Testing: unit & integration testing basics</li>
+                <li>CI/CD, Docker, deployments (GitHub Pages, Vercel, Netlify)</li>
+                <li>Version control: Git, GitHub workflows</li>
+                <li>Performance tuning and lightweight inference for mobile</li>
+                <li>Offline-first and low-connectivity UX considerations</li>
+              </ul>
+            </div>
+          </div>
+          <p style="margin-top:10px;color:var(--muted);font-size:.95rem">Note: edit this list to remove anything that doesn't match your experience.</p>
+        </section>
+
+      </div>
+
+      <!-- RIGHT SIDEBAR -->
+      <aside>
+        <div class="card box contact">
+          <h3 class="section-title">Contact</h3>
+          <p class="muted">Email</p>
+          <p><a href="mailto:tinerombomudzimbamt@gmail.com">tinerombomudzimbamt@gmail.com</a></p>
+
+          <p class="muted" style="margin-top:8px">Phone</p>
+          <p>+263 773 225 226 / +263 774 183 813</p>
+
+          <p class="muted" style="margin-top:8px">LinkedIn</p>
+          <p><a href="https://www.linkedin.com/in/tinerombo-mudzimbasekwa-8aab442a4" target="_blank" rel="noopener noreferrer">tinerombo-mudzimbasekwa-8aab442a4</a></p>
+
+          <p class="muted" style="margin-top:8px">GitHub</p>
+          <p><a href="https://github.com/MdaraTape" target="_blank" rel="noopener noreferrer">github.com/MdaraTape</a></p>
+
+          <p class="muted" style="margin-top:8px">Location</p>
+          <p class="muted" style="font-size:.95rem">8410 Kunaka Rd Unit K, Seke, Chitungwiza, Harare, Zimbabwe</p>
+        </div>
+
+        <div class="card box">
+          <h3 class="section-title">Education</h3>
+          <p class="muted">IU International University of Applied Sciences</p>
+          <p style="margin:6px 0 0 0;color:var(--light)"><strong>Bachelor — Software Development</strong></p>
+          <p class="muted" style="margin-top:6px">2024 — Present</p>
+        </div>
+
+        <div class="card box">
+          <h3 class="section-title">Voluntary</h3>
+          <p class="muted">Chitungwiza Chess Club — member / community volunteer</p>
+        </div>
+
+        <div class="card box">
+          <h3 class="section-title">Interests & extracurricular</h3>
+          <p class="muted">Tech & Innovation, Nature, Traveling, Video Gaming, Creative Design, Photography</p>
+        </div>
+
+      </aside>
+    </main>
+
+    <footer>
+      © Tinerombo T Mudzimbasekwa — <span class="muted">Built with care • Minimal muted palette</span>
+    </footer>
+  </div>
+</body>
+</html>
