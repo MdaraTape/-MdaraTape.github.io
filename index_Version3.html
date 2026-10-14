@@ -103,6 +103,29 @@
     .facts h4{margin:0 0 6px;color:var(--accent-2);font-size:.82rem;letter-spacing:1px;text-transform:uppercase}
     .facts p{margin:0;color:var(--muted)}
 
+    /* About — portrait + bio + quick facts */
+    .about-head{display:flex;align-items:center;gap:12px;margin:0 0 8px}
+    .about-head .ico{width:30px;height:30px;flex:0 0 auto;fill:var(--accent)}
+    .about-layout{display:grid;grid-template-columns:300px 1fr 300px;gap:clamp(28px,4vw,48px);align-items:start;margin-top:40px}
+    @media(max-width:1040px){.about-layout{grid-template-columns:260px 1fr}}
+    @media(max-width:760px){.about-layout{grid-template-columns:1fr}}
+    .portrait{position:relative}
+    .portrait img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:16px;border:1px solid var(--line);
+      background:var(--panel)}
+    .portrait::after{content:"";position:absolute;bottom:-10px;right:-10px;width:28px;height:28px;border-radius:50%;
+      background:var(--accent);box-shadow:0 0 0 5px var(--bg)}
+    .about-bio p{color:#d4dbe4;font-size:1.08rem;margin:0 0 18px}
+    .about-bio p:last-child{margin-bottom:0}
+    .quick-facts{border:1px solid var(--line);border-radius:16px;padding:24px;background:linear-gradient(180deg,rgba(255,255,255,0.03),rgba(0,0,0,0.04))}
+    .quick-facts h3{font-family:var(--serif);color:var(--accent);margin:0 0 18px;font-size:1.3rem}
+    .qf-row{display:grid;grid-template-columns:95px 1fr;gap:10px;padding:11px 0;border-bottom:1px solid var(--line)}
+    .qf-row:last-child{border-bottom:none}
+    .qf-row .k{color:var(--muted);font-size:.92rem}
+    .qf-row .v{color:#fff;font-weight:600;font-size:.95rem;word-break:break-word}
+    .qf-row .v a{color:#fff}
+    .qf-row .v a:hover{color:var(--accent-2)}
+    @media(max-width:1040px){.quick-facts{grid-column:1 / -1}}
+
     .project{display:grid;grid-template-columns:0.9fr 1.1fr;gap:clamp(28px,5vw,60px);align-items:center;margin-top:clamp(48px,7vw,80px)}
     .project:first-of-type{margin-top:0}
     .project .pnum{color:var(--accent);font-weight:700;letter-spacing:1px}
@@ -194,20 +217,36 @@
   <!-- ABOUT -->
   <section id="about">
     <div class="container reveal">
-      <p class="kicker">About</p>
-      <h2 class="h2">Engineering Ideas Into Intelligent Solutions</h2>
-      <div class="about-grid" style="margin-top:34px">
-        <div>
-          <p>I'm Tinerombo T. Mudzimbasekwa, a software developer passionate about building practical, intelligent, and user-focused digital solutions. My interests span software engineering, web and mobile application development, artificial intelligence, and machine learning, with an emphasis on turning complex ideas into functional, meaningful experiences.</p>
+      <div class="about-head">
+        <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 12a5 5 0 1 0-5-5 5 5 0 0 0 5 5zm0 2c-4.42 0-8 2.69-8 6v2h16v-2c0-3.31-3.58-6-8-6z"/></svg>
+        <h2 class="h2">About <span style="color:var(--accent)">Me</span></h2>
+      </div>
+      <p class="sub">Software developer with a passion for turning ideas into intelligent, user-focused solutions.</p>
+
+      <div class="about-layout">
+        <!-- Portrait -->
+        <div class="portrait">
+          <img src="images/profile.jpg" alt="Tinerombo T. Mudzimbasekwa" loading="lazy">
+        </div>
+
+        <!-- Bio -->
+        <div class="about-bio">
+          <p>I am Tinerombo T. Mudzimbasekwa — a software developer passionate about building practical, intelligent, and user-focused digital solutions. My interests span software engineering, web and mobile application development, artificial intelligence, and machine learning.</p>
           <p>I combine technical curiosity with analytical thinking to approach problems from different perspectives — whether designing intuitive applications, integrating generative AI into software, or exploring predictive models that transform data into actionable insights. I'm particularly interested in the intersection of software development and intelligent technologies, where innovation meets real-world application.</p>
-          <p>My approach is grounded in continuous learning, thoughtful problem-solving, and a commitment to writing software that is useful, reliable, and designed with purpose. I enjoy exploring emerging technologies, experimenting with new approaches, and expanding my ability to develop solutions that balance functionality, usability, and technical innovation.</p>
+          <p>My approach is grounded in continuous learning, thoughtful problem-solving, and a commitment to writing software that is useful, reliable, and designed with purpose. Through projects like The Barber Force, Agrivus, and a real-time fatigue detection system, I explore how technology can simplify everyday processes and create meaningful experiences.</p>
           <p>As I continue to grow as a developer, my focus is on building the technical depth and creative perspective needed to contribute to meaningful projects, collaborate on ambitious ideas, and develop technology that creates lasting value.</p>
         </div>
-        <div class="facts">
-          <div class="fact"><h4>Education</h4><p>Bachelor — Software Development<br>IU International University of Applied Sciences<br>2024 — Present</p></div>
-          <div class="fact"><h4>Voluntary</h4><p>Chitungwiza Chess Club — member &amp; community volunteer</p></div>
-          <div class="fact"><h4>Interests</h4><p>Tech &amp; Innovation, Nature, Traveling, Video Gaming, Creative Design, Photography</p></div>
-        </div>
+
+        <!-- Quick Facts -->
+        <aside class="quick-facts">
+          <h3>Quick Facts</h3>
+          <div class="qf-row"><span class="k">Name</span><span class="v">Tinerombo T. Mudzimbasekwa</span></div>
+          <div class="qf-row"><span class="k">Location</span><span class="v">Chitungwiza, Harare, Zimbabwe</span></div>
+          <div class="qf-row"><span class="k">Focus</span><span class="v">Software, Web, Mobile &amp; ML</span></div>
+          <div class="qf-row"><span class="k">Education</span><span class="v">BSc Software Development — IU (2024–Present)</span></div>
+          <div class="qf-row"><span class="k">Phone</span><span class="v">+263 773 225 226</span></div>
+          <div class="qf-row"><span class="k">Email</span><span class="v"><a href="mailto:tinerombomudzimbamt@gmail.com">tinerombomudzimbamt@gmail.com</a></span></div>
+        </aside>
       </div>
     </div>
   </section>
