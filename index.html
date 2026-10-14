@@ -33,14 +33,13 @@
     .container{max-width:var(--maxw);margin:0 auto;padding:0 clamp(20px,5vw,48px)}
 
     /* ---------------- TOP NAV ---------------- */
-    .topbar{position:absolute;top:0;left:0;right:0;z-index:40;transition:background .3s,border-color .3s}
-    .topbar.scrolled{position:fixed;background:rgba(11,17,24,0.82);backdrop-filter:saturate(140%) blur(14px);
-      border-bottom:1px solid var(--line)}
-    .nav{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:22px 0}
-    .topbar.scrolled .nav{padding:14px 0}
+    .topbar{position:fixed;top:0;left:0;right:0;z-index:40;transition:background .3s,border-color .3s,padding .3s;
+      background:rgba(11,17,24,0.82);backdrop-filter:saturate(140%) blur(14px);border-bottom:1px solid var(--line)}
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:12px 0}
     /* elegant wordmark logo (no boxy TTM) */
     .logo{display:flex;align-items:center;gap:11px;color:#fff}
-    .logo .mark{width:40px;height:40px;flex:0 0 auto}
+    .logo .mark{width:46px;height:46px;flex:0 0 auto;object-fit:cover;border-radius:10px;
+      border:1px solid var(--line);background:#0d1420}
     .logo .wordmark{display:flex;flex-direction:column;line-height:1.05}
     .logo .wordmark .name{font-weight:700;font-size:1.02rem;letter-spacing:.3px}
     .logo .wordmark .role{font-size:.72rem;letter-spacing:2px;text-transform:uppercase;color:var(--accent-2);margin-top:2px}
@@ -74,7 +73,8 @@
       background:
         linear-gradient(90deg, rgba(8,12,18,0.96) 0%, rgba(8,12,18,0.82) 46%, rgba(8,12,18,0.32) 100%),
         linear-gradient(180deg, rgba(8,12,18,0.55), rgba(8,12,18,0.90));}
-    .hero .container{position:relative;z-index:2;width:100%;padding-top:96px;padding-bottom:72px}
+    .hero .container{position:relative;z-index:2;width:100%;padding-top:92px;padding-bottom:72px}
+    .hero{min-height:92vh}
     .hero-inner{max-width:720px}
     .hero-inner > *{opacity:0;transform:translateY(22px);animation:rise .7s ease forwards}
     .hero-inner > *:nth-child(1){animation-delay:.05s}
@@ -118,7 +118,7 @@
     @media(max-width:600px){.scroll-cue{display:none}}
 
     /* ---------------- SECTIONS ---------------- */
-    section{padding:clamp(70px,9vw,110px) 0;border-top:1px solid var(--line)}
+    section{padding:clamp(70px,9vw,110px) 0;border-top:1px solid var(--line);scroll-margin-top:74px}
     .kicker{font-size:.78rem;letter-spacing:3px;text-transform:uppercase;color:var(--accent-2);font-weight:600;margin:0 0 12px}
     .h2{font-family:var(--serif);font-weight:700;font-size:clamp(2rem,4.5vw,3rem);margin:0 0 10px;line-height:1.1;color:#fff}
     .sub{color:var(--muted);font-size:1.05rem;margin:0 0 46px;max-width:62ch}
@@ -209,13 +209,7 @@
   <div class="topbar" id="topbar">
     <div class="container nav">
       <a href="#top" class="logo" aria-label="Tinerombo T. Mudzimbasekwa — home">
-        <svg class="mark" viewBox="0 0 44 44" fill="none" aria-hidden="true">
-          <rect x="1.5" y="1.5" width="41" height="41" rx="11" stroke="url(#lg)" stroke-width="1.6"/>
-          <path d="M12 15h20M22 15v15" stroke="url(#lg)" stroke-width="2.4" stroke-linecap="round"/>
-          <circle cx="33" cy="31" r="2.4" fill="var(--accent)"/>
-          <defs><linearGradient id="lg" x1="0" y1="0" x2="44" y2="44" gradientUnits="userSpaceOnUse">
-            <stop stop-color="#6fa5ff"/><stop offset="1" stop-color="#4f8cff"/></linearGradient></defs>
-        </svg>
+        <img class="mark" src="images/ttm.png.jpeg" alt="TTM logo">
         <span class="wordmark">
           <span class="name">Tinerombo Mudzimbasekwa</span>
           <span class="role">Software Developer</span>
