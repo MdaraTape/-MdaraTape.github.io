@@ -3,193 +3,163 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Tinerombo T Mudzimbasekwa — Portfolio</title>
-  <meta name="description" content="Portfolio of Tinerombo T. Mudzimbasekwa — software developer building practical digital solutions across web, mobile and machine learning." />
+  <title>Tinerombo T. Mudzimbasekwa — Software Developer</title>
+  <meta name="description" content="Portfolio of Tinerombo T. Mudzimbasekwa — software developer building practical, intelligent, and user-focused digital solutions across web, mobile and machine learning." />
   <style>
     :root{
-      --bg:#071018;
-      --bg-2:#041018;
-      --card:#0f1620;
-      --muted:#9aa3ad;
-      --beige:#e9dfd0;
-      --light:#ffffff;
-      --accent:#9fb7ff;
-      --accent-2:#c6d4ff;
-      --accent-3:#8affc1;
-      --line:rgba(255,255,255,0.07);
-      --radius:18px;
-      --maxw:1060px;
+      --bg:#0a0e14;
+      --bg-soft:#0f141c;
+      --panel:#121824;
+      --ink:#f3f6fa;
+      --muted:#9ba6b4;
+      --line:rgba(255,255,255,0.08);
+      --accent:#7c93ff;
+      --accent-2:#a9b9ff;
+      --accent-3:#54e3a9;
+      --maxw:1200px;
       font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
     }
-
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
-    body{
-      background:var(--bg);
-      color:var(--light);
-      margin:0;
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-      line-height:1.6;
-      overflow-x:hidden;
-    }
+    body{margin:0;background:var(--bg);color:var(--ink);line-height:1.65;
+      -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;overflow-x:hidden}
+    a{color:inherit}
+    img{display:block;max-width:100%}
 
-    /* animated living background */
-    .bg-fx{position:fixed;inset:0;z-index:-1;overflow:hidden;background:linear-gradient(180deg,var(--bg),var(--bg-2))}
-    .blob{position:absolute;border-radius:50%;filter:blur(70px);opacity:.5;animation:float 18s ease-in-out infinite}
-    .blob.b1{width:460px;height:460px;background:rgba(159,183,255,0.30);top:-120px;right:-80px}
-    .blob.b2{width:380px;height:380px;background:rgba(138,255,193,0.16);bottom:-120px;left:-60px;animation-delay:-6s}
-    .blob.b3{width:300px;height:300px;background:rgba(198,212,255,0.14);top:40%;left:55%;animation-delay:-11s}
-    @keyframes float{
-      0%,100%{transform:translate(0,0) scale(1)}
-      33%{transform:translate(40px,-30px) scale(1.08)}
-      66%{transform:translate(-30px,25px) scale(.95)}
-    }
+    .container{max-width:var(--maxw);margin:0 auto;padding:0 clamp(20px,5vw,56px)}
 
-    .wrap{max-width:var(--maxw);width:100%;margin:0 auto;padding:0 20px 40px}
-
-    /* ---------- NAVIGATION ---------- */
-    .nav-bar{
-      position:sticky;top:0;z-index:50;
-      backdrop-filter:saturate(140%) blur(12px);
-      background:rgba(7,16,24,0.72);
-      border-bottom:1px solid var(--line);
-    }
-    .nav-inner{
-      max-width:var(--maxw);margin:0 auto;padding:14px 20px;
-      display:flex;align-items:center;justify-content:space-between;gap:16px;
-    }
-    .brand h1{margin:0;font-size:1.2rem;color:var(--beige);letter-spacing:.2px}
-    .brand p{margin:3px 0 0 0;color:var(--muted);font-size:.82rem}
-
-    nav.links{display:flex;align-items:center;gap:4px}
-    nav.links a{
-      color:var(--accent);text-decoration:none;font-weight:600;font-size:.95rem;
-      padding:8px 14px;border-radius:999px;transition:background .18s ease,color .18s ease,transform .18s ease;
-    }
-    nav.links a:hover,nav.links a:focus-visible{background:rgba(159,183,255,0.16);color:var(--accent-2);transform:translateY(-1px);outline:none}
-
-    .menu-btn{
-      display:none;background:transparent;border:1px solid var(--line);
-      color:var(--accent);border-radius:10px;padding:8px 12px;font-size:1.1rem;cursor:pointer;
-    }
-    @media(max-width:820px){
-      nav.links{
-        position:absolute;top:100%;left:0;right:0;
-        flex-direction:column;align-items:stretch;gap:2px;
-        background:rgba(7,16,24,0.97);border-bottom:1px solid var(--line);
-        padding:10px 16px 16px;display:none;
-      }
+    /* ---------- NAV ---------- */
+    header.site{position:sticky;top:0;z-index:60;background:rgba(10,14,20,0.8);
+      backdrop-filter:saturate(140%) blur(12px);border-bottom:1px solid var(--line)}
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:16px 0}
+    .brand strong{display:block;font-size:1.05rem;letter-spacing:.2px}
+    .brand span{display:block;color:var(--muted);font-size:.8rem;margin-top:2px}
+    nav.links{display:flex;gap:6px}
+    nav.links a{text-decoration:none;color:var(--muted);font-weight:600;font-size:.95rem;
+      padding:8px 14px;border-radius:8px;transition:color .18s,background .18s}
+    nav.links a:hover{color:var(--ink);background:rgba(255,255,255,0.06)}
+    .menu-btn{display:none;background:transparent;border:1px solid var(--line);color:var(--ink);
+      border-radius:10px;padding:8px 12px;font-size:1.15rem;cursor:pointer}
+    @media(max-width:780px){
+      nav.links{position:fixed;inset:66px 0 auto 0;flex-direction:column;background:var(--bg-soft);
+        border-bottom:1px solid var(--line);padding:12px clamp(20px,5vw,56px) 18px;display:none}
       nav.links.open{display:flex}
-      nav.links a{padding:12px 14px}
       .menu-btn{display:inline-block}
-      .nav-inner{position:relative}
     }
 
-    /* ---------- HERO ---------- */
-    .hero{padding:70px 0 20px;text-align:center}
-    .hero .eyebrow{display:inline-block;color:var(--accent);font-weight:600;font-size:.82rem;letter-spacing:1px;text-transform:uppercase;
-      padding:6px 14px;border-radius:999px;background:rgba(159,183,255,0.10);border:1px solid rgba(159,183,255,0.18)}
-    .hero h2{
-      font-size:clamp(2rem,5vw,3.1rem);margin:20px auto 14px;line-height:1.12;max-width:14ch;font-weight:800;
-      background:linear-gradient(100deg,var(--light),var(--accent-2),var(--accent-3),var(--light));
-      background-size:300% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;
-      animation:shine 9s linear infinite;
-    }
-    @keyframes shine{0%{background-position:0% 50%}100%{background-position:300% 50%}}
-    .hero .tagline{color:var(--beige);font-size:1.15rem;max-width:640px;margin:0 auto}
-    .hero .cta{margin-top:26px;display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
-    .btn{display:inline-block;text-decoration:none;font-weight:600;border-radius:12px;padding:12px 22px;font-size:.95rem;transition:transform .18s ease,box-shadow .18s ease,background .18s ease}
-    .btn.primary{background:var(--accent);color:#071018;box-shadow:0 8px 24px rgba(159,183,255,0.25)}
-    .btn.primary:hover{background:var(--accent-2);transform:translateY(-2px);box-shadow:0 12px 30px rgba(159,183,255,0.35)}
-    .btn.ghost{color:var(--accent);border:1px solid var(--line)}
-    .btn.ghost:hover{background:rgba(159,183,255,0.12);transform:translateY(-2px)}
+    /* ---------- HERO (full-bleed) ---------- */
+    .hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
+    .hero::before{content:"";position:absolute;inset:0;z-index:0;
+      background:
+        radial-gradient(900px 500px at 15% 0%, rgba(124,147,255,0.22), transparent 60%),
+        radial-gradient(700px 500px at 95% 20%, rgba(84,227,169,0.16), transparent 55%),
+        linear-gradient(180deg,var(--bg-soft),var(--bg));
+      animation:drift 16s ease-in-out infinite alternate}
+    @keyframes drift{from{transform:translate3d(0,0,0)}to{transform:translate3d(-24px,16px,0) scale(1.05)}}
+    .hero .container{position:relative;z-index:1;padding-top:clamp(60px,11vw,120px);padding-bottom:clamp(60px,11vw,120px)}
+    .hero .eyebrow{display:inline-block;font-size:.78rem;letter-spacing:2px;text-transform:uppercase;
+      color:var(--accent-2);font-weight:700;margin-bottom:18px}
+    .hero h1{font-size:clamp(2.4rem,6.5vw,4.6rem);line-height:1.05;margin:0;font-weight:800;max-width:16ch;
+      background:linear-gradient(100deg,#fff 20%,var(--accent-2) 50%,var(--accent-3) 80%);
+      -webkit-background-clip:text;background-clip:text;color:transparent;background-size:200% auto;animation:shine 8s linear infinite}
+    @keyframes shine{to{background-position:200% center}}
+    .hero p.lead{font-size:clamp(1.05rem,2.2vw,1.4rem);color:var(--muted);max-width:620px;margin:22px 0 0}
+    .hero .cta{margin-top:34px;display:flex;gap:14px;flex-wrap:wrap}
+    .btn{text-decoration:none;font-weight:700;border-radius:12px;padding:14px 26px;font-size:1rem;
+      transition:transform .18s,box-shadow .18s,background .18s}
+    .btn.primary{background:var(--accent);color:#0a0e14;box-shadow:0 10px 30px rgba(124,147,255,0.3)}
+    .btn.primary:hover{transform:translateY(-2px);box-shadow:0 16px 40px rgba(124,147,255,0.42)}
+    .btn.ghost{color:var(--ink);border:1px solid var(--line)}
+    .btn.ghost:hover{background:rgba(255,255,255,0.06);transform:translateY(-2px)}
 
     /* ---------- SECTIONS ---------- */
-    main{margin-top:30px;display:block}
-    .section{margin:0 auto 30px;max-width:860px}
-    .card{background:linear-gradient(180deg, rgba(255,255,255,0.035), rgba(0,0,0,0.05));
-      padding:30px;border-radius:var(--radius);border:1px solid var(--line);
-      transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease}
-    .card:hover{border-color:rgba(159,183,255,0.22);box-shadow:0 18px 40px rgba(3,6,12,0.45)}
-    .section-title{color:var(--beige);margin:0 0 6px 0;font-size:1.5rem}
-    .section-sub{color:var(--muted);margin:0 0 20px 0;font-size:.97rem}
+    section{padding:clamp(64px,9vw,110px) 0;border-bottom:1px solid var(--line)}
+    .kicker{font-size:.78rem;letter-spacing:2px;text-transform:uppercase;color:var(--accent-2);font-weight:700;margin:0 0 10px}
+    .h2{font-size:clamp(1.8rem,4vw,2.8rem);margin:0 0 8px;font-weight:800;line-height:1.1}
+    .sub{color:var(--muted);font-size:1.05rem;margin:0 0 44px;max-width:60ch}
 
-    /* about */
-    .about h2{color:var(--beige);margin:0 0 16px 0;font-size:1.6rem}
-    .about p{color:#cfd6de;margin:0 0 14px 0;font-size:1.04rem}
-    .about p:last-child{margin-bottom:0}
-    .about strong{color:var(--light)}
-    .about-facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin-top:24px}
-    .fact{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px}
-    .fact h4{margin:0 0 6px 0;color:var(--accent-2);font-size:.95rem}
-    .fact p{margin:0;color:var(--muted);font-size:.92rem}
+    /* About — two-column editorial, not a card */
+    .about-grid{display:grid;grid-template-columns:1.5fr 1fr;gap:clamp(32px,6vw,80px);align-items:start}
+    @media(max-width:860px){.about-grid{grid-template-columns:1fr}}
+    .about-grid p{color:#d4dbe4;font-size:1.1rem;margin:0 0 20px}
+    .about-grid p:last-child{margin-bottom:0}
+    .about-grid strong{color:var(--ink)}
+    .facts{display:flex;flex-direction:column;gap:0}
+    .fact{padding:20px 0;border-top:1px solid var(--line)}
+    .fact:last-child{border-bottom:1px solid var(--line)}
+    .fact h4{margin:0 0 6px;color:var(--accent-2);font-size:.82rem;letter-spacing:1px;text-transform:uppercase}
+    .fact p{margin:0;color:var(--muted);font-size:.98rem}
 
-    /* projects */
-    .project{padding:26px;border-radius:16px;background:var(--card);border:1px solid var(--line);
-      transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease}
-    .project:hover{transform:translateY(-4px);border-color:rgba(159,183,255,0.24);box-shadow:0 20px 44px rgba(3,6,12,0.5)}
-    .project+.project{margin-top:24px}
-    .project .title{margin:0 0 8px 0;color:var(--accent-2);font-size:1.4rem}
-    .project .meta{color:#cfd6de;font-size:1rem;margin:0}
-    .project-gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-top:22px}
-    .project-gallery figure{margin:0}
-    .project-gallery img{
-      width:100%;aspect-ratio:16/10;object-fit:cover;border-radius:12px;
-      border:1px solid var(--line);background:#0b1220;display:block;cursor:zoom-in;
-      transition:transform .25s ease, box-shadow .25s ease;
-    }
-    .project-gallery img:hover{transform:scale(1.02);box-shadow:0 14px 32px rgba(3,6,12,0.6)}
-    .project-gallery figcaption{color:var(--muted);font-size:.82rem;margin-top:8px;text-align:center}
+    /* Projects — alternating full-width rows */
+    .project{display:grid;grid-template-columns:0.9fr 1.1fr;gap:clamp(28px,5vw,64px);align-items:center;margin-top:clamp(48px,7vw,88px)}
+    .project:first-of-type{margin-top:0}
+    .project .info .pnum{color:var(--accent-3);font-weight:700;font-size:.9rem;letter-spacing:1px}
+    .project .info h3{font-size:clamp(1.5rem,3vw,2.2rem);margin:8px 0 14px;font-weight:800}
+    .project .info p{color:#d4dbe4;font-size:1.08rem;margin:0}
+    .project .info .tags{margin-top:18px;display:flex;flex-wrap:wrap;gap:8px}
+    .project .info .tags span{font-size:.82rem;color:var(--muted);border:1px solid var(--line);
+      padding:5px 12px;border-radius:999px}
+    @media(max-width:860px){.project{grid-template-columns:1fr}.project .media{order:2}.project .info{order:1}}
+    .project.flip .info{order:2}
+    .project.flip .media{order:1}
+    @media(max-width:860px){.project.flip .info{order:1}.project.flip .media{order:2}}
 
-    /* skills */
-    .skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px;margin-top:6px}
-    .skill-list{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:6px 16px}
-    .skill-list ul{list-style:none;padding:0;margin:0;color:#cfd6de;font-size:.95rem}
-    .skill-list li{padding:11px 0;border-bottom:1px solid var(--line)}
-    .skill-list li:last-child{border-bottom:none}
+    /* Image shelf — shows FULL images (no cropping), horizontal scroll for many */
+    .shelf{display:flex;gap:16px;overflow-x:auto;padding:6px 2px 16px;scroll-snap-type:x mandatory;
+      scrollbar-width:thin;scrollbar-color:var(--accent) transparent}
+    .shelf::-webkit-scrollbar{height:8px}
+    .shelf::-webkit-scrollbar-thumb{background:var(--line);border-radius:999px}
+    .shelf figure{margin:0;flex:0 0 auto;scroll-snap-align:start}
+    .shelf img{height:min(60vh,440px);width:auto;max-width:none;border-radius:14px;border:1px solid var(--line);
+      background:var(--panel);cursor:zoom-in;transition:transform .25s,box-shadow .25s}
+    .shelf img:hover{transform:translateY(-4px);box-shadow:0 20px 48px rgba(0,0,0,0.5)}
+    .shelf-hint{color:var(--muted);font-size:.82rem;margin:4px 0 0}
+    /* single/duo images: just show them side by side, full */
+    .shelf.few{flex-wrap:wrap;overflow:visible}
+    .shelf.few img{height:auto;width:100%;max-width:360px}
 
-    /* contact (bottom, full width) */
-    .contact-section{max-width:860px;margin:0 auto 24px;text-align:center}
-    .contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-top:22px;text-align:left}
-    .contact-item{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px;transition:transform .2s ease,border-color .2s ease}
-    .contact-item:hover{transform:translateY(-3px);border-color:rgba(159,183,255,0.24)}
-    .contact-item .label{color:var(--muted);font-size:.8rem;text-transform:uppercase;letter-spacing:.6px;margin:0 0 6px}
-    .contact-item a{color:var(--accent);text-decoration:none;word-break:break-word;font-weight:600}
-    .contact-item a:hover{color:var(--accent-2)}
-    .contact-item p{margin:0;color:#e3e8ee}
+    /* Skills — flowing tag cloud, not boxes */
+    .skills{display:flex;flex-wrap:wrap;gap:12px}
+    .skills span{border:1px solid var(--line);background:var(--bg-soft);color:#d4dbe4;
+      padding:11px 18px;border-radius:999px;font-size:.98rem;transition:border-color .2s,color .2s,transform .2s}
+    .skills span:hover{border-color:var(--accent);color:#fff;transform:translateY(-2px)}
 
-    footer{margin-top:20px;padding-top:24px;border-top:1px solid var(--line);
-      color:var(--muted);font-size:.9rem;text-align:center}
+    /* Contact — bottom, open, full width */
+    #contact{border-bottom:none}
+    .contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:28px 48px;margin-top:40px}
+    .contact-item .label{color:var(--accent-2);font-size:.8rem;letter-spacing:1.4px;text-transform:uppercase;margin:0 0 8px}
+    .contact-item a{color:var(--ink);text-decoration:none;font-size:1.1rem;font-weight:600;word-break:break-word;border-bottom:1px solid transparent;transition:border-color .2s}
+    .contact-item a:hover{border-color:var(--accent)}
+    .contact-item p{margin:0;color:#d4dbe4;font-size:1.05rem}
 
-    /* scroll reveal */
-    .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease, transform .7s ease}
+    footer{padding:40px 0;color:var(--muted);font-size:.92rem}
+    footer .container{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+
+    /* reveal */
+    .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
     .reveal.visible{opacity:1;transform:none}
 
     /* lightbox */
-    .lightbox{position:fixed;inset:0;z-index:100;background:rgba(3,6,12,0.92);
-      display:flex;align-items:center;justify-content:center;padding:28px;
-      opacity:0;pointer-events:none;transition:opacity .25s ease}
+    .lightbox{position:fixed;inset:0;z-index:100;background:rgba(5,8,12,0.94);display:flex;
+      align-items:center;justify-content:center;padding:28px;opacity:0;pointer-events:none;transition:opacity .25s}
     .lightbox.open{opacity:1;pointer-events:auto}
-    .lightbox img{max-width:94vw;max-height:90vh;border-radius:12px;box-shadow:0 20px 60px rgba(0,0,0,0.6)}
-    .lightbox .close{position:absolute;top:18px;right:24px;color:#fff;background:rgba(255,255,255,0.08);
-      border:1px solid var(--line);border-radius:10px;font-size:1.4rem;line-height:1;padding:8px 14px;cursor:pointer}
+    .lightbox img{max-width:95vw;max-height:92vh;width:auto;height:auto;border-radius:12px;box-shadow:0 24px 70px rgba(0,0,0,0.7)}
+    .lightbox .close{position:absolute;top:18px;right:22px;background:rgba(255,255,255,0.1);border:1px solid var(--line);
+      color:#fff;border-radius:10px;font-size:1.3rem;padding:8px 14px;cursor:pointer}
 
     @media(prefers-reduced-motion:reduce){
-      .blob,.hero h2{animation:none}
+      .hero::before,.hero h1{animation:none}
       .reveal{opacity:1;transform:none;transition:none}
     }
   </style>
 </head>
 <body>
-  <div class="bg-fx"><span class="blob b1"></span><span class="blob b2"></span><span class="blob b3"></span></div>
-
-  <!-- NAVIGATION -->
-  <div class="nav-bar">
-    <div class="nav-inner">
+  <!-- NAV -->
+  <header class="site">
+    <div class="container nav">
       <div class="brand">
-        <h1>Tinerombo T. Mudzimbasekwa</h1>
-        <p>Software Developer • Web, Mobile &amp; Machine Learning</p>
+        <strong>Tinerombo T. Mudzimbasekwa</strong>
+        <span>Software Developer • Web, Mobile &amp; Machine Learning</span>
       </div>
       <button class="menu-btn" aria-label="Toggle navigation" aria-expanded="false" onclick="toggleMenu(this)">☰</button>
       <nav class="links" id="navLinks">
@@ -199,53 +169,57 @@
         <a href="#contact">Contact</a>
       </nav>
     </div>
-  </div>
+  </header>
 
-  <div class="wrap">
-    <!-- HERO -->
-    <header class="hero">
-      <span class="eyebrow">Portfolio</span>
-      <h2>Engineering ideas into intelligent solutions.</h2>
-      <p class="tagline">Building practical digital solutions through code, creativity, and problem-solving.</p>
+  <!-- HERO -->
+  <div class="hero">
+    <div class="container">
+      <span class="eyebrow">Software Developer</span>
+      <h1>Engineering ideas into intelligent solutions.</h1>
+      <p class="lead">Building practical digital solutions through code, creativity, and problem-solving.</p>
       <div class="cta">
-        <a class="btn primary" href="#projects">View projects</a>
+        <a class="btn primary" href="#projects">View my work</a>
         <a class="btn ghost" href="#contact">Get in touch</a>
       </div>
-    </header>
+    </div>
+  </div>
 
-    <main>
-      <!-- ABOUT -->
-      <section id="about" class="card section about reveal">
-        <h2>About — Engineering Ideas Into Intelligent Solutions</h2>
-        <p>
-          I'm Tinerombo T. Mudzimbasekwa, a software developer passionate about building practical,
-          intelligent, and user-focused digital solutions. My interests span software engineering, web and
-          mobile application development, artificial intelligence, and machine learning, with an emphasis on
-          turning complex ideas into functional, meaningful experiences.
-        </p>
-        <p>
-          I combine technical curiosity with analytical thinking to approach problems from different
-          perspectives — whether designing intuitive applications, integrating generative AI into software,
-          or exploring predictive models that transform data into actionable insights. I'm particularly
-          interested in the intersection of software development and intelligent technologies, where
-          innovation meets real-world application.
-        </p>
-        <p>
-          My approach is grounded in continuous learning, thoughtful problem-solving, and a commitment to
-          writing software that is useful, reliable, and designed with purpose. I enjoy exploring emerging
-          technologies, experimenting with new approaches, and expanding my ability to develop solutions
-          that balance functionality, usability, and technical innovation.
-        </p>
-        <p>
-          As I continue to grow as a developer, my focus is on building the technical depth and creative
-          perspective needed to contribute to meaningful projects, collaborate on ambitious ideas, and
-          develop technology that creates lasting value.
-        </p>
-
-        <div class="about-facts">
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="container reveal">
+      <p class="kicker">About</p>
+      <h2 class="h2">Engineering Ideas Into Intelligent Solutions</h2>
+      <div class="about-grid" style="margin-top:36px">
+        <div>
+          <p>
+            I'm Tinerombo T. Mudzimbasekwa, a software developer passionate about building practical,
+            intelligent, and user-focused digital solutions. My interests span software engineering, web and
+            mobile application development, artificial intelligence, and machine learning, with an emphasis on
+            turning complex ideas into functional, meaningful experiences.
+          </p>
+          <p>
+            I combine technical curiosity with analytical thinking to approach problems from different
+            perspectives — whether designing intuitive applications, integrating generative AI into software,
+            or exploring predictive models that transform data into actionable insights. I'm particularly
+            interested in the intersection of software development and intelligent technologies, where
+            innovation meets real-world application.
+          </p>
+          <p>
+            My approach is grounded in continuous learning, thoughtful problem-solving, and a commitment to
+            writing software that is useful, reliable, and designed with purpose. I enjoy exploring emerging
+            technologies, experimenting with new approaches, and expanding my ability to develop solutions
+            that balance functionality, usability, and technical innovation.
+          </p>
+          <p>
+            As I continue to grow as a developer, my focus is on building the technical depth and creative
+            perspective needed to contribute to meaningful projects, collaborate on ambitious ideas, and
+            develop technology that creates lasting value.
+          </p>
+        </div>
+        <div class="facts">
           <div class="fact">
             <h4>Education</h4>
-            <p>Bachelor — Software Development, IU International University of Applied Sciences (2024 — Present)</p>
+            <p>Bachelor — Software Development<br>IU International University of Applied Sciences<br>2024 — Present</p>
           </div>
           <div class="fact">
             <h4>Voluntary</h4>
@@ -256,18 +230,29 @@
             <p>Tech &amp; Innovation, Nature, Traveling, Video Gaming, Creative Design, Photography</p>
           </div>
         </div>
-      </section>
+      </div>
+    </div>
+  </section>
 
-      <!-- PROJECTS -->
-      <section id="projects" class="section reveal">
-        <h2 class="section-title">Selected projects</h2>
-        <p class="section-sub">A few things I've designed and built recently. Click any image to view it full-size.</p>
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="container">
+      <div class="reveal">
+        <p class="kicker">Portfolio</p>
+        <h2 class="h2">Selected projects</h2>
+        <p class="sub">A selection of what I've designed and built. Click any screenshot to view it full-size.</p>
+      </div>
 
-        <!-- The Barber Force -->
-        <article class="project" id="the-barber-force">
-          <h3 class="title">The Barber Force</h3>
-          <p class="meta">Booking and service discovery app for barbershops and salon clients. Mobile-first flow with role selection, account creation, and booking checkout.</p>
-          <div class="project-gallery">
+      <!-- The Barber Force -->
+      <article class="project reveal" id="the-barber-force">
+        <div class="info">
+          <span class="pnum">01</span>
+          <h3>The Barber Force</h3>
+          <p>Booking and service discovery app for barbershops and salon clients. Mobile-first flow with role selection, account creation, and booking checkout.</p>
+          <div class="tags"><span>React Native</span><span>Mobile-first</span><span>Auth &amp; roles</span><span>Booking</span></div>
+        </div>
+        <div class="media">
+          <div class="shelf">
             <figure><img src="images/the-barber-force-1.png.jpeg" alt="The Barber Force screenshot 1" loading="lazy"></figure>
             <figure><img src="images/the-barber-force-2.png.jpeg" alt="The Barber Force screenshot 2" loading="lazy"></figure>
             <figure><img src="images/the-barber-force-3.png.jpeg" alt="The Barber Force screenshot 3" loading="lazy"></figure>
@@ -275,117 +260,127 @@
             <figure><img src="images/the-barber-force-5.png.jpeg" alt="The Barber Force screenshot 5" loading="lazy"></figure>
             <figure><img src="images/the-barber-force-6.png.jpeg" alt="The Barber Force screenshot 6" loading="lazy"></figure>
           </div>
-        </article>
+          <p class="shelf-hint">← Scroll to see all 6 screens →</p>
+        </div>
+      </article>
 
-        <!-- Graduation Glamour -->
-        <article class="project" id="graduation-glamour">
-          <h3 class="title">Graduation Glamour</h3>
-          <p class="meta">Event planning and e-commerce for graduation packages and photography bookings — gallery, package selection, and checkout for organizers and customers.</p>
-          <div class="project-gallery">
+      <!-- Graduation Glamour -->
+      <article class="project flip reveal" id="graduation-glamour">
+        <div class="info">
+          <span class="pnum">02</span>
+          <h3>Graduation Glamour</h3>
+          <p>Event planning and e-commerce for graduation packages and photography bookings — gallery, package selection, and checkout for organizers and customers.</p>
+          <div class="tags"><span>E-commerce</span><span>Gallery</span><span>Checkout</span><span>Bookings</span></div>
+        </div>
+        <div class="media">
+          <div class="shelf">
             <figure><img src="images/graduation-glamour-1.png.png" alt="Graduation Glamour screenshot 1" loading="lazy"></figure>
             <figure><img src="images/graduation-glamour-2.png.png" alt="Graduation Glamour screenshot 2" loading="lazy"></figure>
             <figure><img src="images/graduation-glamour-3.png.png" alt="Graduation Glamour screenshot 3" loading="lazy"></figure>
           </div>
-        </article>
+          <p class="shelf-hint">← Scroll to see all screens →</p>
+        </div>
+      </article>
 
-        <!-- Fatigue detection system -->
-        <article class="project" id="fatigue-detection">
-          <h3 class="title">Fatigue Detection System</h3>
-          <p class="meta">Prototype computer-vision ML system that detects driver fatigue in real time using camera input and lightweight inference for road-safety demos.</p>
-          <div class="project-gallery">
+      <!-- Fatigue Detection -->
+      <article class="project reveal" id="fatigue-detection">
+        <div class="info">
+          <span class="pnum">03</span>
+          <h3>Fatigue Detection System</h3>
+          <p>Prototype computer-vision ML system that detects driver fatigue in real time using camera input and lightweight inference for road-safety demos.</p>
+          <div class="tags"><span>Computer Vision</span><span>OpenCV</span><span>Real-time ML</span><span>Python</span></div>
+        </div>
+        <div class="media">
+          <div class="shelf few">
             <figure><img src="images/fatigue-detection-system-1.png.jpeg" alt="Fatigue Detection System screenshot 1" loading="lazy"></figure>
             <figure><img src="images/fatigue-detection-system-2.png.jpeg" alt="Fatigue Detection System screenshot 2" loading="lazy"></figure>
           </div>
-        </article>
+        </div>
+      </article>
 
-        <!-- Agrivus -->
-        <article class="project" id="agrivus">
-          <h3 class="title">Agrivus</h3>
-          <p class="meta">Agriculture management tool for smallholders: crop records, weather data, and practical advisory features — designed with low-connectivity UX in mind.</p>
-          <div class="project-gallery">
+      <!-- Agrivus -->
+      <article class="project flip reveal" id="agrivus">
+        <div class="info">
+          <span class="pnum">04</span>
+          <h3>Agrivus</h3>
+          <p>Agriculture management tool for smallholders: crop records, weather data, and practical advisory features — designed with low-connectivity UX in mind.</p>
+          <div class="tags"><span>AgriTech</span><span>Offline-first</span><span>Weather data</span><span>Advisory</span></div>
+        </div>
+        <div class="media">
+          <div class="shelf few">
             <figure><img src="images/agrivus-1.png.png" alt="Agrivus screenshot 1" loading="lazy"></figure>
             <figure><img src="images/agrivus-2.png.png" alt="Agrivus screenshot 2" loading="lazy"></figure>
           </div>
-        </article>
-
-        <!-- Statix Electricity -->
-        <article class="project" id="statix-electricity">
-          <h3 class="title">Statix Electricity</h3>
-          <p class="meta">Monitoring and maintenance dashboard for electrical networks — incident logging, alerting, and simple analytics to track faults and maintenance windows.</p>
-        </article>
-      </section>
-
-      <!-- SKILLS -->
-      <section id="skills" class="card section reveal">
-        <h2 class="section-title">Skills</h2>
-        <p class="section-sub">Technologies and practices I've exercised across my projects.</p>
-        <div class="skills-grid">
-          <div class="skill-list">
-            <ul>
-              <li>HTML, CSS (responsive, mobile-first), SCSS</li>
-              <li>JavaScript (ES6+), TypeScript</li>
-              <li>React, React Native, Next.js</li>
-              <li>Node.js, Express</li>
-              <li>Python — prototyping &amp; ML</li>
-              <li>Machine Learning: TensorFlow / PyTorch, OpenCV</li>
-            </ul>
-          </div>
-          <div class="skill-list">
-            <ul>
-              <li>REST APIs, WebSockets</li>
-              <li>PostgreSQL, MySQL, MongoDB, Firebase</li>
-              <li>Authentication &amp; OAuth, role-based access</li>
-              <li>Payment integration (Stripe)</li>
-              <li>Geolocation, maps &amp; pinning</li>
-              <li>Data visualization &amp; analytics dashboards</li>
-            </ul>
-          </div>
-          <div class="skill-list">
-            <ul>
-              <li>UX/UI patterns, mobile onboarding</li>
-              <li>Testing: unit &amp; integration basics</li>
-              <li>CI/CD, Docker, deployments</li>
-              <li>Git &amp; GitHub workflows</li>
-              <li>Performance tuning &amp; lightweight inference</li>
-              <li>Offline-first, low-connectivity UX</li>
-            </ul>
-          </div>
         </div>
-      </section>
+      </article>
 
-      <!-- CONTACT (bottom, full width) -->
-      <section id="contact" class="card contact-section reveal">
-        <h2 class="section-title">Get in touch</h2>
-        <p class="section-sub">Open to collaboration, internships, and interesting projects.</p>
-        <div class="contact-grid">
-          <div class="contact-item">
-            <p class="label">Email</p>
-            <a href="mailto:tinerombomudzimbamt@gmail.com">tinerombomudzimbamt@gmail.com</a>
-          </div>
-          <div class="contact-item">
-            <p class="label">Phone</p>
-            <p>+263 773 225 226<br>+263 774 183 813</p>
-          </div>
-          <div class="contact-item">
-            <p class="label">LinkedIn</p>
-            <a href="https://www.linkedin.com/in/tinerombo-mudzimbasekwa-8aab442a4" target="_blank" rel="noopener noreferrer">tinerombo-mudzimbasekwa-8aab442a4</a>
-          </div>
-          <div class="contact-item">
-            <p class="label">GitHub</p>
-            <a href="https://github.com/MdaraTape" target="_blank" rel="noopener noreferrer">github.com/MdaraTape</a>
-          </div>
-          <div class="contact-item">
-            <p class="label">Location</p>
-            <p>8410 Kunaka Rd Unit K, Seke, Chitungwiza, Harare, Zimbabwe</p>
-          </div>
+      <!-- Statix Electricity (no screenshots) -->
+      <article class="project reveal" id="statix-electricity" style="grid-template-columns:1fr">
+        <div class="info">
+          <span class="pnum">05</span>
+          <h3>Statix Electricity</h3>
+          <p>Monitoring and maintenance dashboard for electrical networks — incident logging, alerting, and simple analytics to track faults and maintenance windows.</p>
+          <div class="tags"><span>Dashboard</span><span>Alerting</span><span>Analytics</span></div>
         </div>
-      </section>
-    </main>
+      </article>
+    </div>
+  </section>
 
-    <footer>
-      © Tinerombo T. Mudzimbasekwa — Building practical digital solutions through code, creativity, and problem-solving.
-    </footer>
-  </div>
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="container reveal">
+      <p class="kicker">Toolkit</p>
+      <h2 class="h2">Skills</h2>
+      <p class="sub">Technologies and practices I've exercised across my projects.</p>
+      <div class="skills">
+        <span>HTML &amp; CSS</span><span>SCSS</span><span>JavaScript (ES6+)</span><span>TypeScript</span>
+        <span>React</span><span>React Native</span><span>Next.js</span><span>Node.js</span><span>Express</span>
+        <span>Python</span><span>TensorFlow</span><span>PyTorch</span><span>OpenCV</span>
+        <span>REST APIs</span><span>WebSockets</span><span>PostgreSQL</span><span>MySQL</span><span>MongoDB</span><span>Firebase</span>
+        <span>OAuth &amp; Auth</span><span>Stripe payments</span><span>Geolocation &amp; maps</span>
+        <span>Data visualization</span><span>UX/UI patterns</span><span>Testing</span>
+        <span>CI/CD</span><span>Docker</span><span>Git &amp; GitHub</span><span>Offline-first UX</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="container reveal">
+      <p class="kicker">Contact</p>
+      <h2 class="h2">Let's build something together.</h2>
+      <p class="sub">Open to collaboration, internships, and interesting projects. The fastest way to reach me:</p>
+      <div class="contact-grid">
+        <div class="contact-item">
+          <p class="label">Email</p>
+          <a href="mailto:tinerombomudzimbamt@gmail.com">tinerombomudzimbamt@gmail.com</a>
+        </div>
+        <div class="contact-item">
+          <p class="label">Phone</p>
+          <p>+263 773 225 226<br>+263 774 183 813</p>
+        </div>
+        <div class="contact-item">
+          <p class="label">LinkedIn</p>
+          <a href="https://www.linkedin.com/in/tinerombo-mudzimbasekwa-8aab442a4" target="_blank" rel="noopener noreferrer">tinerombo-mudzimbasekwa-8aab442a4</a>
+        </div>
+        <div class="contact-item">
+          <p class="label">GitHub</p>
+          <a href="https://github.com/MdaraTape" target="_blank" rel="noopener noreferrer">github.com/MdaraTape</a>
+        </div>
+        <div class="contact-item">
+          <p class="label">Location</p>
+          <p>8410 Kunaka Rd Unit K, Seke,<br>Chitungwiza, Harare, Zimbabwe</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <span>© Tinerombo T. Mudzimbasekwa</span>
+      <span>Building practical digital solutions through code, creativity, and problem-solving.</span>
+    </div>
+  </footer>
 
   <!-- LIGHTBOX -->
   <div class="lightbox" id="lightbox" aria-hidden="true">
@@ -395,34 +390,31 @@
 
   <script>
     function toggleMenu(btn){
-      var links = document.getElementById('navLinks');
-      var open = links.classList.toggle('open');
-      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      var links=document.getElementById('navLinks');
+      var open=links.classList.toggle('open');
+      btn.setAttribute('aria-expanded',open?'true':'false');
     }
     document.querySelectorAll('#navLinks a').forEach(function(a){
-      a.addEventListener('click', function(){
+      a.addEventListener('click',function(){
         document.getElementById('navLinks').classList.remove('open');
         document.querySelector('.menu-btn').setAttribute('aria-expanded','false');
       });
     });
 
-    // Scroll-reveal animations
-    var io = new IntersectionObserver(function(entries){
-      entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target); } });
-    }, {threshold:0.12});
-    document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target);}});
+    },{threshold:0.1});
+    document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
 
-    // Lightbox for project images
-    var lb = document.getElementById('lightbox');
-    var lbImg = document.getElementById('lightboxImg');
-    function openLightbox(src, alt){ lbImg.src = src; lbImg.alt = alt || ''; lb.classList.add('open'); lb.setAttribute('aria-hidden','false'); }
-    function closeLightbox(){ lb.classList.remove('open'); lb.setAttribute('aria-hidden','true'); lbImg.src=''; }
-    document.querySelectorAll('.project-gallery img').forEach(function(img){
-      img.addEventListener('click', function(){ openLightbox(img.src, img.alt); });
+    var lb=document.getElementById('lightbox'),lbImg=document.getElementById('lightboxImg');
+    function openLightbox(src,alt){lbImg.src=src;lbImg.alt=alt||'';lb.classList.add('open');lb.setAttribute('aria-hidden','false');}
+    function closeLightbox(){lb.classList.remove('open');lb.setAttribute('aria-hidden','true');lbImg.src='';}
+    document.querySelectorAll('.shelf img').forEach(function(img){
+      img.addEventListener('click',function(){openLightbox(img.src,img.alt);});
     });
-    document.getElementById('lightboxClose').addEventListener('click', closeLightbox);
-    lb.addEventListener('click', function(e){ if(e.target === lb) closeLightbox(); });
-    document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeLightbox(); });
+    document.getElementById('lightboxClose').addEventListener('click',closeLightbox);
+    lb.addEventListener('click',function(e){if(e.target===lb)closeLightbox();});
+    document.addEventListener('keydown',function(e){if(e.key==='Escape')closeLightbox();});
   </script>
 </body>
 </html>
