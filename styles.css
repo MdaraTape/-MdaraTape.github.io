@@ -298,3 +298,64 @@ footer .container{display:flex;justify-content:space-between;gap:16px;flex-wrap:
   color:#fff;border-radius:10px;font-size:1.3rem;padding:8px 14px;cursor:pointer}
 
 @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+
+/* ============================================================
+   RESPONSIVE HARDENING — tablets, small phones, large screens
+   ============================================================ */
+
+/* Small landscape tablets (860–1000px): keep Barber Force readable.
+   Below 1000px the glass tile could feel cramped beside the image,
+   so stack it there instead of only at 860px. */
+@media(max-width:1000px){
+  #the-barber-force{--tile-h:auto;grid-template-columns:1fr}
+  #the-barber-force .glass-info{height:auto;overflow:visible}
+  #the-barber-force .media{order:2}
+  #the-barber-force .glass-info{order:1}
+  #the-barber-force .media .landing img{height:auto;width:100%;max-width:420px;margin:0 auto}
+}
+
+/* Portrait tablets (iPad ~768–834px): give the hero a touch more breathing room */
+@media(max-width:900px){
+  .hero .container{padding-top:96px;padding-bottom:56px}
+}
+
+/* Phones (<=600px): fine-tune so nothing crowds or overflows */
+@media(max-width:600px){
+  /* Keep the hero subject centred so the photo focal point isn't cut off */
+  .hero-bg{background-position:center center}
+  /* Full-width, comfortably tappable buttons */
+  .hero .cta{gap:12px}
+  .hero .cta .btn{flex:1 1 100%;justify-content:center}
+  .btn{padding:14px 22px}
+  /* Section padding a bit tighter so content isn't lost in whitespace */
+  section{padding:clamp(52px,12vw,70px) 0}
+  /* Footer stacks and centres */
+  footer .container{flex-direction:column;align-items:center;text-align:center;gap:8px}
+  /* Contact form button spans the width for easy tapping */
+  .cf-send{align-self:stretch;justify-content:center}
+  /* Larger comfortable tap targets for nav + social icons */
+  .socials a{width:48px;height:48px}
+}
+
+/* Very small phones (<=380px): prevent the big serif name from overflowing */
+@media(max-width:380px){
+  .hero h1{font-size:clamp(2rem,10vw,2.6rem);letter-spacing:-.5px}
+  .quick-facts{padding:20px}
+  .qf-row{grid-template-columns:1fr;gap:2px}
+  .qf-row .k{font-size:.78rem;text-transform:uppercase;letter-spacing:.5px}
+}
+
+/* Swipe hint for the horizontal image shelves (Fatigue, Agrivus) on touch screens */
+@media(max-width:860px){
+  .shelf:not(.few){position:relative}
+  .shelf.few{justify-content:center}
+}
+
+/* Ultra-wide screens (>=1600px): nudge base font up so the page doesn't feel tiny */
+@media(min-width:1600px){
+  html{font-size:17.5px}
+}
+
+/* Guard against any accidental horizontal overflow on all devices */
+html,body{max-width:100%;overflow-x:hidden}
+img,svg,video{max-width:100%}
