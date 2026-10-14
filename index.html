@@ -248,6 +248,22 @@
       background:var(--panel);cursor:zoom-in;transition:transform .2s}
     .gallery-modal .gm-grid img:hover{transform:translateY(-3px)}
 
+    /* Graduation Glamour — centered description on top, 3 images in one row below */
+    .project-stacked{margin-top:clamp(48px,7vw,80px)}
+    .info-centered{max-width:720px;margin:0 auto;text-align:center}
+    .info-centered .pnum{color:var(--accent);font-weight:700;letter-spacing:1px}
+    .info-centered h3{font-family:var(--serif);font-size:clamp(1.5rem,3vw,2.1rem);margin:8px 0 14px;color:#fff}
+    .info-centered .desc{color:#d4dbe4;font-size:1.06rem;margin:0 auto}
+    .info-centered .tags{margin-top:18px;display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+    .info-centered .tags span{font-size:.8rem;color:var(--muted);border:1px solid var(--line);padding:5px 12px;border-radius:999px}
+    .row-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:clamp(28px,4vw,44px)}
+    .row-3 figure{margin:0}
+    .row-3 img{width:100%;aspect-ratio:9/16;object-fit:cover;border-radius:14px;border:1px solid var(--line);
+      background:var(--panel);cursor:zoom-in;box-shadow:0 16px 40px rgba(0,0,0,0.4);
+      transition:transform .25s,box-shadow .25s}
+    .row-3 img:hover{transform:translateY(-5px);box-shadow:0 24px 54px rgba(0,0,0,0.5)}
+    @media(max-width:620px){.row-3{grid-template-columns:1fr;max-width:420px;margin-left:auto;margin-right:auto}}
+
     .skills{display:flex;flex-wrap:wrap;gap:12px}
     .skills span{border:1px solid var(--line);background:var(--bg-soft);color:#d4dbe4;padding:11px 18px;border-radius:10px;
       font-size:.97rem;transition:border-color .2s,color .2s,transform .2s}
@@ -385,20 +401,17 @@
         </div>
       </article>
 
-      <article class="project flip reveal" id="graduation-glamour">
-        <div class="info">
+      <article class="project-stacked reveal" id="graduation-glamour">
+        <div class="info-centered">
           <span class="pnum">02</span>
           <h3>Graduation Glamour</h3>
           <p class="desc">Event planning and e-commerce for graduation packages and photography bookings — gallery, package selection, and checkout for organizers and customers.</p>
           <div class="tags"><span>E-commerce</span><span>Gallery</span><span>Checkout</span><span>Bookings</span></div>
         </div>
-        <div class="media">
-          <div class="shelf">
-            <figure><img src="images/graduation-glamour-1.png.png" alt="Graduation Glamour screenshot 1" loading="lazy"></figure>
-            <figure><img src="images/graduation-glamour-2.png.png" alt="Graduation Glamour screenshot 2" loading="lazy"></figure>
-            <figure><img src="images/graduation-glamour-3.png.png" alt="Graduation Glamour screenshot 3" loading="lazy"></figure>
-          </div>
-          <p class="shelf-hint">← Scroll to see all screens →</p>
+        <div class="row-3">
+          <figure><img src="images/graduation-glamour-1.png.png" alt="Graduation Glamour screenshot 1" loading="lazy"></figure>
+          <figure><img src="images/graduation-glamour-2.png.png" alt="Graduation Glamour screenshot 2" loading="lazy"></figure>
+          <figure><img src="images/graduation-glamour-3.png.png" alt="Graduation Glamour screenshot 3" loading="lazy"></figure>
         </div>
       </article>
 
@@ -525,7 +538,7 @@
     var lb=document.getElementById('lightbox'),lbImg=document.getElementById('lightboxImg');
     function openLightbox(src,alt){lbImg.src=src;lbImg.alt=alt||'';lb.classList.add('open');lb.setAttribute('aria-hidden','false');}
     function closeLightbox(){lb.classList.remove('open');lb.setAttribute('aria-hidden','true');lbImg.src='';}
-    document.querySelectorAll('.shelf img').forEach(function(img){img.addEventListener('click',function(){openLightbox(img.src,img.alt);});});
+    document.querySelectorAll('.shelf img, .row-3 img').forEach(function(img){img.addEventListener('click',function(){openLightbox(img.src,img.alt);});});
     document.getElementById('lightboxClose').addEventListener('click',closeLightbox);
     lb.addEventListener('click',function(e){if(e.target===lb)closeLightbox();});
 
