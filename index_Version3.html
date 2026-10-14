@@ -4,249 +4,362 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Tinerombo T Mudzimbasekwa — Portfolio</title>
-  <meta name="description" content="Portfolio website for Tinerombo T Mudzimbasekwa — software developer (web, mobile, ML)." />
+  <meta name="description" content="Portfolio of Tinerombo T. Mudzimbasekwa — software developer building practical digital solutions across web, mobile and machine learning." />
   <style>
     :root{
-      --bg:#071018;            /* near black, cool */
-      --card:#0f1620;          /* dark card */
-      --muted:#8b9198;         /* gray text */
-      --beige:#e9dfd0;         /* soft beige */
+      --bg:#071018;
+      --bg-2:#041018;
+      --card:#0f1620;
+      --muted:#9aa3ad;
+      --beige:#e9dfd0;
       --light:#ffffff;
-      --accent:#9fb7ff;        /* light blue accent */
-      --accent-2:#c6d4ff;      /* lighter blue */
-      --radius:14px;
-      --maxw:980px;
+      --accent:#9fb7ff;
+      --accent-2:#c6d4ff;
+      --line:rgba(255,255,255,0.06);
+      --radius:16px;
+      --maxw:1040px;
       font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
     }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
     html,body{height:100%}
     body{
-      background:linear-gradient(180deg,var(--bg), #041018);
+      background:
+        radial-gradient(1200px 600px at 85% -10%, rgba(159,183,255,0.10), transparent 60%),
+        linear-gradient(180deg,var(--bg), var(--bg-2));
       color:var(--light);
       margin:0;
       -webkit-font-smoothing:antialiased;
       -moz-osx-font-smoothing:grayscale;
-      padding:28px;
-      display:flex;
-      justify-content:center;
+      line-height:1.5;
     }
-    .wrap{max-width:var(--maxw);width:100%}
-    header{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      gap:20px;
+
+    .wrap{max-width:var(--maxw);width:100%;margin:0 auto;padding:0 20px 48px}
+
+    /* ---------- NAVIGATION ---------- */
+    .nav-bar{
+      position:sticky;top:0;z-index:50;
+      backdrop-filter:saturate(140%) blur(10px);
+      background:rgba(7,16,24,0.72);
+      border-bottom:1px solid var(--line);
     }
-    .brand h1{margin:0;font-size:1.6rem;color:var(--beige)}
-    .brand p{margin:6px 0 0 0;color:var(--muted);font-size:.95rem}
-    nav a{color:var(--accent);text-decoration:none;margin-left:12px;font-weight:600}
-    main{margin-top:22px;display:grid;grid-template-columns:1fr 340px;gap:26px}
-    @media(max-width:980px){ main{grid-template-columns:1fr} nav{display:none} }
+    .nav-inner{
+      max-width:var(--maxw);margin:0 auto;padding:14px 20px;
+      display:flex;align-items:center;justify-content:space-between;gap:16px;
+    }
+    .brand h1{margin:0;font-size:1.25rem;color:var(--beige);letter-spacing:.2px}
+    .brand p{margin:3px 0 0 0;color:var(--muted);font-size:.85rem}
 
-    /* left column content */
-    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.03)); padding:18px;border-radius:var(--radius);border:1px solid rgba(255,255,255,0.03)}
-    .section+ .section{margin-top:18px}
+    nav.links{display:flex;align-items:center;gap:4px}
+    nav.links a{
+      color:var(--accent);text-decoration:none;font-weight:600;font-size:.95rem;
+      padding:8px 14px;border-radius:999px;transition:background .18s ease,color .18s ease;
+    }
+    nav.links a:hover,nav.links a:focus-visible{background:rgba(159,183,255,0.14);color:var(--accent-2);outline:none}
 
-    /* hero/about */
-    .about h2{color:var(--beige);margin:0 0 8px 0}
-    .about p{color:var(--muted);margin:0;font-size:1rem;line-height:1.5}
+    .menu-btn{
+      display:none;background:transparent;border:1px solid var(--line);
+      color:var(--accent);border-radius:10px;padding:8px 12px;font-size:1.1rem;cursor:pointer;
+    }
+
+    @media(max-width:820px){
+      nav.links{
+        position:absolute;top:100%;left:0;right:0;
+        flex-direction:column;align-items:stretch;gap:2px;
+        background:rgba(7,16,24,0.97);border-bottom:1px solid var(--line);
+        padding:10px 16px 16px;display:none;
+      }
+      nav.links.open{display:flex}
+      nav.links a{padding:12px 14px}
+      .menu-btn{display:inline-block}
+      .nav-inner{position:relative}
+    }
+
+    /* ---------- HERO ---------- */
+    .hero{padding:46px 0 10px}
+    .hero .eyebrow{display:inline-block;color:var(--accent);font-weight:600;font-size:.85rem;
+      padding:6px 12px;border-radius:999px;background:rgba(159,183,255,0.10);border:1px solid rgba(159,183,255,0.14)}
+    .hero h2{font-size:2rem;margin:16px 0 10px;color:var(--light);line-height:1.2}
+    .hero .tagline{color:var(--beige);font-size:1.15rem;max-width:720px;margin:0}
+    .hero .cta{margin-top:22px;display:flex;gap:12px;flex-wrap:wrap}
+    .btn{display:inline-block;text-decoration:none;font-weight:600;border-radius:10px;padding:11px 18px;font-size:.95rem}
+    .btn.primary{background:var(--accent);color:#071018}
+    .btn.primary:hover{background:var(--accent-2)}
+    .btn.ghost{color:var(--accent);border:1px solid var(--line)}
+    .btn.ghost:hover{background:rgba(159,183,255,0.10)}
+
+    /* ---------- LAYOUT ---------- */
+    main{margin-top:26px;display:grid;grid-template-columns:1fr 340px;gap:26px;align-items:start}
+    @media(max-width:980px){ main{grid-template-columns:1fr} }
+
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(0,0,0,0.04));
+      padding:22px;border-radius:var(--radius);border:1px solid var(--line)}
+    .section+.section{margin-top:22px}
+    .section-title{color:var(--beige);margin:0 0 6px 0;font-size:1.3rem}
+    .section-sub{color:var(--muted);margin:0 0 16px 0;font-size:.95rem}
+
+    /* about */
+    .about h2{color:var(--beige);margin:0 0 14px 0;font-size:1.5rem}
+    .about p{color:#cfd6de;margin:0 0 14px 0;font-size:1.02rem}
+    .about p:last-child{margin-bottom:0}
+    .about strong{color:var(--light)}
 
     /* projects */
-    .projects-grid{display:grid;grid-template-columns:1fr;gap:14px;margin-top:10px}
-    .project{display:flex;gap:12px;align-items:flex-start;padding:12px;border-radius:12px;background:var(--card);border:1px solid rgba(255,255,255,0.02)}
-    .project .meta{color:var(--muted);font-size:.95rem}
-    .project .title{margin:0;color:var(--accent-2)}
-    .project img{width:160px;height:auto;border-radius:10px;object-fit:cover;background:#0b1220;box-shadow:0 6px 18px rgba(3,6,12,0.6)}
-    .project-gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-top:10px}
-    .project-gallery img{width:100%;height:170px;object-fit:cover;border-radius:10px;border:1px solid rgba(255,255,255,0.03)}
+    .project{padding:18px;border-radius:14px;background:var(--card);border:1px solid var(--line)}
+    .project+.project{margin-top:16px}
+    .project .title{margin:0 0 6px 0;color:var(--accent-2);font-size:1.15rem}
+    .project .meta{color:var(--muted);font-size:.97rem;margin:0}
+    .project-gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:14px}
+    .project-gallery.cols-3{grid-template-columns:repeat(3,1fr)}
+    .project-gallery img{
+      width:100%;height:180px;object-fit:cover;border-radius:10px;
+      border:1px solid var(--line);background:#0b1220;display:block;
+      transition:transform .2s ease, box-shadow .2s ease;
+    }
+    .project-gallery img:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(3,6,12,0.6)}
+    @media(max-width:560px){ .project-gallery,.project-gallery.cols-3{grid-template-columns:repeat(2,1fr)} .project-gallery img{height:140px} }
+
+    .pill{display:inline-block;padding:8px 14px;border-radius:999px;background:rgba(159,183,255,0.10);
+      color:var(--accent);font-weight:600;border:1px solid rgba(159,183,255,0.16);text-decoration:none;font-size:.9rem;margin-top:14px}
+    .pill:hover{background:rgba(159,183,255,0.18)}
 
     /* skills */
-    .skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-top:8px}
-    .skill-list{background:transparent;padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,0.02)}
-    .skill-list ul{list-style:none;padding:0;margin:0;color:var(--muted);font-size:.95rem}
-    .skill-list li{padding:6px 0;border-bottom:1px dashed rgba(255,255,255,0.02)}
+    .skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;margin-top:6px}
+    .skill-list ul{list-style:none;padding:0;margin:0;color:#cfd6de;font-size:.95rem}
+    .skill-list li{padding:9px 0;border-bottom:1px solid var(--line)}
     .skill-list li:last-child{border-bottom:none}
 
-    /* right column (sidebar) */
-    aside{position:sticky;top:28px}
-    aside .box{margin-bottom:14px}
-    .muted{color:var(--muted);font-size:.95rem}
+    /* sidebar */
+    aside{position:sticky;top:84px}
+    @media(max-width:980px){ aside{position:static} }
+    aside .box{margin-bottom:16px}
+    .muted{color:var(--muted);font-size:.9rem;margin:12px 0 2px}
     .contact a{color:var(--accent);text-decoration:none;word-break:break-word}
-    .section-title{color:var(--beige);margin:0 0 8px 0}
+    .contact a:hover{color:var(--accent-2)}
+    .contact p{margin:0}
 
-    footer{margin-top:26px;color:var(--muted);font-size:.9rem;text-align:center}
-    .pill{display:inline-block;padding:6px 10px;border-radius:999px;background:rgba(159,183,255,0.08);color:var(--accent);font-weight:600;border:1px solid rgba(159,183,255,0.06)}
+    footer{margin-top:34px;padding-top:20px;border-top:1px solid var(--line);
+      color:var(--muted);font-size:.9rem;text-align:center}
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <header>
+  <!-- NAVIGATION -->
+  <div class="nav-bar">
+    <div class="nav-inner">
       <div class="brand">
-        <h1>Tinerombo T Mudzimbasekwa</h1>
-        <p>Software developer • Web, Mobile & Machine Learning</p>
+        <h1>Tinerombo T. Mudzimbasekwa</h1>
+        <p>Software Developer • Web, Mobile &amp; Machine Learning</p>
       </div>
-      <nav>
+      <button class="menu-btn" aria-label="Toggle navigation" aria-expanded="false" onclick="toggleMenu(this)">☰</button>
+      <nav class="links" id="navLinks">
         <a href="#about">About</a>
         <a href="#projects">Projects</a>
         <a href="#skills">Skills</a>
         <a href="#contact">Contact</a>
       </nav>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <!-- HERO -->
+    <header class="hero">
+      <span class="eyebrow">Portfolio</span>
+      <h2>Building technology that matters.</h2>
+      <p class="tagline">Building practical digital solutions through code, creativity, and problem-solving.</p>
+      <div class="cta">
+        <a class="btn primary" href="#projects">View projects</a>
+        <a class="btn ghost" href="#contact">Get in touch</a>
+      </div>
     </header>
 
     <main>
       <div>
-        <!-- ABOUT / STORY -->
+        <!-- ABOUT -->
         <section id="about" class="card section about">
-          <h2>About — My story</h2>
+          <h2>About Me — Building Technology That Matters</h2>
           <p>
-            Hi — I'm Tinerombo. I build web and mobile apps and experiment with practical machine learning solutions.
-            I like clear interfaces, reliable features, and mobile‑first experiences that people actually enjoy using.
-            I’m currently studying Software Development (BSc) at IU International University of Applied Sciences (2024–Present).
-            (Short and honest — edit this to make it more “you”.)
+            I'm Tinerombo T. Mudzimbasekwa, a software developer passionate about building digital
+            solutions that solve real-world problems. My interests span web development, mobile applications,
+            and machine learning, with a focus on turning ideas into practical, user-friendly experiences.
+          </p>
+          <p>
+            I believe great software is more than code — it's about understanding problems, thinking
+            creatively, and building solutions that are reliable, intuitive, and genuinely useful. Through
+            projects like <strong>The Barber Force</strong>, I'm exploring how technology can simplify
+            everyday processes, connect people with services, and create better digital experiences.
+          </p>
+          <p>
+            I'm continually expanding my skills, exploring new technologies, and challenging myself to build
+            beyond the ordinary. I value clean design, thoughtful problem-solving, and the process of
+            transforming an idea into something people can actually use.
+          </p>
+          <p>
+            My goal is to become a versatile software developer and technology innovator, building meaningful
+            products that create value, solve problems, and make a lasting impact.
           </p>
         </section>
 
         <!-- PROJECTS -->
         <section id="projects" class="card section">
           <h2 class="section-title">Selected projects</h2>
+          <p class="section-sub">A few things I've designed and built recently.</p>
 
-          <!-- The Barber Force — gallery -->
+          <!-- The Barber Force -->
           <article class="project" id="the-barber-force">
-            <img src="images/the-barber-force-1.png" alt="The Barber Force - landing">
-            <div>
-              <h3 class="title">The Barber Force</h3>
-              <p class="meta">Booking and service discovery app for barbershops and salon clients. Mobile-first flow with role selection, account creation, and booking checkout.</p>
-
-              <div class="project-gallery" style="margin-top:8px">
-                <!-- replace these images with the screenshots you provided -->
-                <img src="images/the-barber-force-1.png" alt="Barber Force screenshot 1">
-                <img src="images/the-barber-force-2.png" alt="Barber Force screenshot 2">
-                <img src="images/the-barber-force-3.png" alt="Barber Force screenshot 3">
-                <img src="images/the-barber-force-4.png" alt="Barber Force screenshot 4">
-              </div>
-
-              <div style="margin-top:10px">
-                <a class="pill" href="https://github.com/MdaraTape/the-barber-force" target="_blank" rel="noopener noreferrer">Repository</a>
-              </div>
+            <h3 class="title">The Barber Force</h3>
+            <p class="meta">Booking and service discovery app for barbershops and salon clients. Mobile-first flow with role selection, account creation, and booking checkout.</p>
+            <div class="project-gallery cols-3">
+              <img src="images/the-barber-force-1.png.jpeg" alt="The Barber Force screenshot 1" loading="lazy">
+              <img src="images/the-barber-force-2.png.jpeg" alt="The Barber Force screenshot 2" loading="lazy">
+              <img src="images/the-barber-force-3.png.jpeg" alt="The Barber Force screenshot 3" loading="lazy">
+              <img src="images/the-barber-force-4.png.jpeg" alt="The Barber Force screenshot 4" loading="lazy">
+              <img src="images/the-barber-force-5.png.jpeg" alt="The Barber Force screenshot 5" loading="lazy">
+              <img src="images/the-barber-force-6.png.jpeg" alt="The Barber Force screenshot 6" loading="lazy">
             </div>
-          </article>
-
-          <!-- Statix Electricity -->
-          <article class="project" id="statix-electricity" style="margin-top:12px">
-            <img src="images/statix-electricity.png" alt="Statix Electricity dashboard">
-            <div>
-              <h3 class="title">Statix Electricity</h3>
-              <p class="meta">Monitoring and maintenance dashboard for electrical networks — incident logging, alerting, and simple analytics to track faults and maintenance windows.</p>
-              <div style="margin-top:10px"><a class="pill" href="https://github.com/MdaraTape/statix-electricity" target="_blank" rel="noopener noreferrer">Repository</a></div>
-            </div>
+            <a class="pill" href="https://github.com/MdaraTape/the-barber-force" target="_blank" rel="noopener noreferrer">Repository</a>
           </article>
 
           <!-- Graduation Glamour -->
-          <article class="project" id="graduation-glamour" style="margin-top:12px">
-            <img src="images/graduation-glamour.png" alt="Graduation Glamour">
-            <div>
-              <h3 class="title">Graduation Glamour</h3>
-              <p class="meta">Event planning + e-commerce for graduation packages and photography bookings — gallery, package selection and checkout for organizers and customers.</p>
-              <div style="margin-top:10px"><a class="pill" href="https://github.com/MdaraTape/graduation-glamour" target="_blank" rel="noopener noreferrer">Repository</a></div>
+          <article class="project" id="graduation-glamour">
+            <h3 class="title">Graduation Glamour</h3>
+            <p class="meta">Event planning and e-commerce for graduation packages and photography bookings — gallery, package selection, and checkout for organizers and customers.</p>
+            <div class="project-gallery cols-3">
+              <img src="images/graduation-glamour-1.png.png" alt="Graduation Glamour screenshot 1" loading="lazy">
+              <img src="images/graduation-glamour-2.png.png" alt="Graduation Glamour screenshot 2" loading="lazy">
+              <img src="images/graduation-glamour-3.png.png" alt="Graduation Glamour screenshot 3" loading="lazy">
             </div>
+            <a class="pill" href="https://github.com/MdaraTape/graduation-glamour" target="_blank" rel="noopener noreferrer">Repository</a>
           </article>
 
           <!-- Fatigue detection system -->
-          <article class="project" id="fatigue-detection" style="margin-top:12px">
-            <img src="images/fatigue-detection-system.png" alt="Fatigue Detection system">
-            <div>
-              <h3 class="title">Fatigue detection system</h3>
-              <p class="meta">Prototype computer-vision ML system that detects driver fatigue in real time using camera input and lightweight inference for road‑safety demos.</p>
-              <div style="margin-top:10px"><a class="pill" href="https://github.com/MdaraTape/fatigue-detection-system" target="_blank" rel="noopener noreferrer">Repository</a></div>
+          <article class="project" id="fatigue-detection">
+            <h3 class="title">Fatigue Detection System</h3>
+            <p class="meta">Prototype computer-vision ML system that detects driver fatigue in real time using camera input and lightweight inference for road-safety demos.</p>
+            <div class="project-gallery">
+              <img src="images/fatigue-detection-system-1.png.jpeg" alt="Fatigue Detection System screenshot 1" loading="lazy">
+              <img src="images/fatigue-detection-system-2.png.jpeg" alt="Fatigue Detection System screenshot 2" loading="lazy">
             </div>
+            <a class="pill" href="https://github.com/MdaraTape/fatigue-detection-system" target="_blank" rel="noopener noreferrer">Repository</a>
           </article>
 
           <!-- Agrivus -->
-          <article class="project" id="agrivus" style="margin-top:12px">
-            <img src="images/agrivus.png" alt="Agrivus">
-            <div>
-              <h3 class="title">Agrivus</h3>
-              <p class="meta">Agriculture management tool for smallholders: crop records, weather data, and practical advisory features — designed with low‑connectivity UX in mind.</p>
-              <div style="margin-top:10px"><a class="pill" href="https://github.com/MdaraTape/agrivus" target="_blank" rel="noopener noreferrer">Repository</a></div>
+          <article class="project" id="agrivus">
+            <h3 class="title">Agrivus</h3>
+            <p class="meta">Agriculture management tool for smallholders: crop records, weather data, and practical advisory features — designed with low-connectivity UX in mind.</p>
+            <div class="project-gallery">
+              <img src="images/agrivus-1.png.png" alt="Agrivus screenshot 1" loading="lazy">
+              <img src="images/agrivus-2.png.png" alt="Agrivus screenshot 2" loading="lazy">
             </div>
+            <a class="pill" href="https://github.com/MdaraTape/agrivus" target="_blank" rel="noopener noreferrer">Repository</a>
+          </article>
+
+          <!-- Statix Electricity (no screenshot yet) -->
+          <article class="project" id="statix-electricity">
+            <h3 class="title">Statix Electricity</h3>
+            <p class="meta">Monitoring and maintenance dashboard for electrical networks — incident logging, alerting, and simple analytics to track faults and maintenance windows.</p>
+            <a class="pill" href="https://github.com/MdaraTape/statix-electricity" target="_blank" rel="noopener noreferrer">Repository</a>
           </article>
 
         </section>
 
         <!-- SKILLS -->
         <section id="skills" class="card section">
-          <h2 class="section-title">Skills (exercised across projects)</h2>
+          <h2 class="section-title">Skills</h2>
+          <p class="section-sub">Technologies and practices I've exercised across my projects.</p>
           <div class="skills-grid">
             <div class="skill-list">
               <ul>
                 <li>HTML, CSS (responsive, mobile-first), SCSS</li>
                 <li>JavaScript (ES6+), TypeScript</li>
-                <li>React, React Native, Next.js / client-side frameworks</li>
+                <li>React, React Native, Next.js</li>
                 <li>Node.js, Express</li>
-                <li>Python — prototyping and ML code</li>
-                <li>Machine Learning: TensorFlow / PyTorch basics, OpenCV (computer vision)</li>
+                <li>Python — prototyping &amp; ML</li>
+                <li>Machine Learning: TensorFlow / PyTorch, OpenCV</li>
+              </ul>
+            </div>
+            <div class="skill-list">
+              <ul>
                 <li>REST APIs, WebSockets</li>
-                <li>Databases: PostgreSQL, MySQL, MongoDB, Firebase</li>
-                <li>Authentication & OAuth (Google sign-in), role-based access</li>
-                <li>Payment integration (Stripe / payment flows)</li>
-                <li>Geolocation, maps and pinning (workplace location)</li>
-                <li>Data visualization, analytics dashboards</li>
-                <li>UX/UI patterns, mobile onboarding, accessibility basics</li>
-                <li>Testing: unit & integration testing basics</li>
-                <li>CI/CD, Docker, deployments (GitHub Pages, Vercel, Netlify)</li>
-                <li>Version control: Git, GitHub workflows</li>
-                <li>Performance tuning and lightweight inference for mobile</li>
-                <li>Offline-first and low-connectivity UX considerations</li>
+                <li>PostgreSQL, MySQL, MongoDB, Firebase</li>
+                <li>Authentication &amp; OAuth, role-based access</li>
+                <li>Payment integration (Stripe)</li>
+                <li>Geolocation, maps &amp; pinning</li>
+                <li>Data visualization &amp; analytics dashboards</li>
+              </ul>
+            </div>
+            <div class="skill-list">
+              <ul>
+                <li>UX/UI patterns, mobile onboarding</li>
+                <li>Testing: unit &amp; integration basics</li>
+                <li>CI/CD, Docker, deployments</li>
+                <li>Git &amp; GitHub workflows</li>
+                <li>Performance tuning &amp; lightweight inference</li>
+                <li>Offline-first, low-connectivity UX</li>
               </ul>
             </div>
           </div>
-          <p style="margin-top:10px;color:var(--muted);font-size:.95rem">Note: edit this list to remove anything that doesn't match your experience.</p>
         </section>
-
       </div>
 
-      <!-- RIGHT SIDEBAR -->
+      <!-- SIDEBAR -->
       <aside>
-        <div class="card box contact">
+        <div class="card box contact" id="contact">
           <h3 class="section-title">Contact</h3>
           <p class="muted">Email</p>
           <p><a href="mailto:tinerombomudzimbamt@gmail.com">tinerombomudzimbamt@gmail.com</a></p>
 
-          <p class="muted" style="margin-top:8px">Phone</p>
+          <p class="muted">Phone</p>
           <p>+263 773 225 226 / +263 774 183 813</p>
 
-          <p class="muted" style="margin-top:8px">LinkedIn</p>
+          <p class="muted">LinkedIn</p>
           <p><a href="https://www.linkedin.com/in/tinerombo-mudzimbasekwa-8aab442a4" target="_blank" rel="noopener noreferrer">tinerombo-mudzimbasekwa-8aab442a4</a></p>
 
-          <p class="muted" style="margin-top:8px">GitHub</p>
+          <p class="muted">GitHub</p>
           <p><a href="https://github.com/MdaraTape" target="_blank" rel="noopener noreferrer">github.com/MdaraTape</a></p>
 
-          <p class="muted" style="margin-top:8px">Location</p>
-          <p class="muted" style="font-size:.95rem">8410 Kunaka Rd Unit K, Seke, Chitungwiza, Harare, Zimbabwe</p>
+          <p class="muted">Location</p>
+          <p style="color:var(--muted);font-size:.95rem">8410 Kunaka Rd Unit K, Seke, Chitungwiza, Harare, Zimbabwe</p>
         </div>
 
         <div class="card box">
           <h3 class="section-title">Education</h3>
-          <p class="muted">IU International University of Applied Sciences</p>
+          <p class="muted" style="margin-top:0">IU International University of Applied Sciences</p>
           <p style="margin:6px 0 0 0;color:var(--light)"><strong>Bachelor — Software Development</strong></p>
-          <p class="muted" style="margin-top:6px">2024 — Present</p>
+          <p class="muted">2024 — Present</p>
         </div>
 
         <div class="card box">
           <h3 class="section-title">Voluntary</h3>
-          <p class="muted">Chitungwiza Chess Club — member / community volunteer</p>
+          <p class="muted" style="margin-top:0">Chitungwiza Chess Club — member / community volunteer</p>
         </div>
 
         <div class="card box">
-          <h3 class="section-title">Interests & extracurricular</h3>
-          <p class="muted">Tech & Innovation, Nature, Traveling, Video Gaming, Creative Design, Photography</p>
+          <h3 class="section-title">Interests</h3>
+          <p class="muted" style="margin-top:0">Tech &amp; Innovation, Nature, Traveling, Video Gaming, Creative Design, Photography</p>
         </div>
-
       </aside>
     </main>
 
     <footer>
-      © Tinerombo T Mudzimbasekwa — <span class="muted">Built with care • Minimal muted palette</span>
+      © Tinerombo T. Mudzimbasekwa — Building practical digital solutions through code, creativity, and problem-solving.
     </footer>
   </div>
+
+  <script>
+    function toggleMenu(btn){
+      var links = document.getElementById('navLinks');
+      var open = links.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    }
+    // Close the mobile menu after a link is tapped
+    document.querySelectorAll('#navLinks a').forEach(function(a){
+      a.addEventListener('click', function(){
+        var links = document.getElementById('navLinks');
+        links.classList.remove('open');
+        document.querySelector('.menu-btn').setAttribute('aria-expanded','false');
+      });
+    });
+  </script>
 </body>
 </html>
