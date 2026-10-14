@@ -178,8 +178,11 @@
     .shelf-hint{color:var(--muted);font-size:.82rem;margin:4px 0 0}
 
     /* Barber Force — glass tile sizes to content; image matches the tile's height */
-    #the-barber-force{align-items:stretch}
+    /* Barber Force — ONE fixed height drives BOTH tile and image. No stretching. */
+    #the-barber-force{--tile-h:560px;align-items:start}
     .glass-info{
+      height:var(--tile-h);                 /* tile matches the image height exactly */
+      overflow:auto;
       background:rgba(255,255,255,0.025);
       border:1px solid rgba(255,255,255,0.12);
       border-radius:18px;padding:clamp(24px,2.6vw,34px);
@@ -198,16 +201,16 @@
     .view-all:hover{background:var(--accent-2);transform:translateY(-2px);box-shadow:0 14px 34px rgba(79,140,255,0.42)}
     .view-all svg{transition:transform .18s}
     .view-all:hover svg{transform:translateX(3px)}
-    /* image column: fill the row's (tile-driven) height, never force it taller */
-    .media{height:100%;display:flex;justify-content:center;overflow:hidden;border-radius:18px}
-    .media .landing{margin:0;height:100%;display:flex}
-    .media .landing img{height:100%;width:auto;max-width:100%;object-fit:contain;
+    /* image: fixed to the same height; width auto so it is the biggest it can be at that height */
+    .media{display:flex;justify-content:center}
+    .media .landing{margin:0}
+    .media .landing img{height:var(--tile-h);width:auto;max-width:100%;object-fit:cover;
       border-radius:18px;border:1px solid var(--line);background:var(--panel);
       box-shadow:0 20px 50px rgba(0,0,0,0.45)}
     @media(max-width:860px){
-      #the-barber-force{align-items:start}
-      .media,.media .landing{height:auto}
-      .media .landing img{height:auto;width:100%;max-width:420px;margin:0 auto;object-fit:cover}
+      #the-barber-force{--tile-h:auto}
+      .glass-info{height:auto;overflow:visible}
+      .media .landing img{height:auto;width:100%;max-width:420px;margin:0 auto}
     }
 
     /* Gallery modal (view all images) */
