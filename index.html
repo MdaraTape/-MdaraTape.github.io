@@ -177,6 +177,43 @@
     .shelf.few img{height:auto;width:100%;max-width:360px}
     .shelf-hint{color:var(--muted);font-size:.82rem;margin:4px 0 0}
 
+    /* Barber Force — glassmorphism tile + landing image */
+    .glass-info{
+      background:rgba(255,255,255,0.06);
+      border:1px solid rgba(255,255,255,0.14);
+      border-radius:18px;padding:30px;
+      backdrop-filter:blur(14px) saturate(140%);
+      -webkit-backdrop-filter:blur(14px) saturate(140%);
+      box-shadow:0 18px 44px rgba(0,0,0,0.35);
+    }
+    .glass-info .desc{margin-bottom:0}
+    .view-all{margin-top:22px;display:inline-flex;align-items:center;gap:9px;cursor:pointer;
+      background:var(--accent);color:#fff;border:none;border-radius:12px;padding:13px 22px;
+      font-size:.98rem;font-weight:600;font-family:var(--sans);
+      transition:background .18s,transform .18s,box-shadow .18s;box-shadow:0 10px 26px rgba(79,140,255,0.3)}
+    .view-all:hover{background:var(--accent-2);transform:translateY(-2px);box-shadow:0 14px 34px rgba(79,140,255,0.42)}
+    .view-all svg{transition:transform .18s}
+    .view-all:hover svg{transform:translateX(3px)}
+    .media .landing{margin:0}
+    .media .landing img{width:100%;max-width:420px;margin:0 auto;aspect-ratio:9/16;object-fit:cover;
+      border-radius:16px;border:1px solid var(--line);background:var(--panel);
+      box-shadow:0 20px 50px rgba(0,0,0,0.45)}
+
+    /* Gallery modal (view all images) */
+    .gallery-modal{position:fixed;inset:0;z-index:110;background:rgba(5,8,12,0.9);
+      display:flex;flex-direction:column;padding:clamp(16px,4vw,40px);
+      opacity:0;pointer-events:none;transition:opacity .25s}
+    .gallery-modal.open{opacity:1;pointer-events:auto}
+    .gallery-modal .gm-head{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:18px}
+    .gallery-modal .gm-head h4{font-family:var(--serif);color:#fff;font-size:1.4rem;margin:0}
+    .gallery-modal .gm-close{background:rgba(255,255,255,0.1);border:1px solid var(--line);color:#fff;
+      border-radius:10px;font-size:1.2rem;padding:8px 14px;cursor:pointer}
+    .gallery-modal .gm-grid{overflow-y:auto;display:grid;gap:16px;
+      grid-template-columns:repeat(auto-fill,minmax(220px,1fr));align-content:start}
+    .gallery-modal .gm-grid img{width:100%;border-radius:12px;border:1px solid var(--line);
+      background:var(--panel);cursor:zoom-in;transition:transform .2s}
+    .gallery-modal .gm-grid img:hover{transform:translateY(-3px)}
+
     .skills{display:flex;flex-wrap:wrap;gap:12px}
     .skills span{border:1px solid var(--line);background:var(--bg-soft);color:#d4dbe4;padding:11px 18px;border-radius:10px;
       font-size:.97rem;transition:border-color .2s,color .2s,transform .2s}
@@ -297,22 +334,20 @@
       </div>
 
       <article class="project reveal" id="the-barber-force">
-        <div class="info">
+        <div class="glass-info">
           <span class="pnum">01</span>
           <h3>The Barber Force</h3>
           <p class="desc">Booking and service discovery app for barbershops and salon clients. Mobile-first flow with role selection, account creation, and booking checkout.</p>
           <div class="tags"><span>React Native</span><span>Mobile-first</span><span>Auth &amp; roles</span><span>Booking</span></div>
+          <button class="view-all" type="button"
+            data-gallery='["images/the-barber-force-1.png.jpeg","images/the-barber-force-2.png.jpeg","images/the-barber-force-3.png.jpeg","images/the-barber-force-4.png.jpeg","images/the-barber-force-5.png.jpeg","images/the-barber-force-6.png.jpeg"]'
+            data-title="The Barber Force">
+            View all images
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </button>
         </div>
         <div class="media">
-          <div class="shelf">
-            <figure><img src="images/the-barber-force-1.png.jpeg" alt="The Barber Force screenshot 1" loading="lazy"></figure>
-            <figure><img src="images/the-barber-force-2.png.jpeg" alt="The Barber Force screenshot 2" loading="lazy"></figure>
-            <figure><img src="images/the-barber-force-3.png.jpeg" alt="The Barber Force screenshot 3" loading="lazy"></figure>
-            <figure><img src="images/the-barber-force-4.png.jpeg" alt="The Barber Force screenshot 4" loading="lazy"></figure>
-            <figure><img src="images/the-barber-force-5.png.jpeg" alt="The Barber Force screenshot 5" loading="lazy"></figure>
-            <figure><img src="images/the-barber-force-6.png.jpeg" alt="The Barber Force screenshot 6" loading="lazy"></figure>
-          </div>
-          <p class="shelf-hint">← Scroll to see all 6 screens →</p>
+          <figure class="landing"><img src="images/the-barber-force-1.png.jpeg" alt="The Barber Force landing screen" loading="lazy"></figure>
         </div>
       </article>
 
@@ -420,6 +455,15 @@
     <img src="" alt="Enlarged project screenshot" id="lightboxImg">
   </div>
 
+  <!-- GALLERY MODAL (view all images) -->
+  <div class="gallery-modal" id="galleryModal" aria-hidden="true">
+    <div class="gm-head">
+      <h4 id="galleryTitle">Project gallery</h4>
+      <button class="gm-close" id="galleryClose" aria-label="Close gallery">✕</button>
+    </div>
+    <div class="gm-grid" id="galleryGrid"></div>
+  </div>
+
   <script>
     function toggleMenu(btn){
       var links=document.getElementById('navLinks');
@@ -450,7 +494,30 @@
     document.querySelectorAll('.shelf img').forEach(function(img){img.addEventListener('click',function(){openLightbox(img.src,img.alt);});});
     document.getElementById('lightboxClose').addEventListener('click',closeLightbox);
     lb.addEventListener('click',function(e){if(e.target===lb)closeLightbox();});
-    document.addEventListener('keydown',function(e){if(e.key==='Escape')closeLightbox();});
+
+    // Gallery modal — "View all images"
+    var gm=document.getElementById('galleryModal'),gmGrid=document.getElementById('galleryGrid'),gmTitle=document.getElementById('galleryTitle');
+    function openGallery(images,title){
+      gmGrid.innerHTML='';
+      gmTitle.textContent=title||'Project gallery';
+      images.forEach(function(src,i){
+        var im=document.createElement('img');
+        im.src=src; im.alt=(title||'Project')+' screenshot '+(i+1); im.loading='lazy';
+        im.addEventListener('click',function(){openLightbox(src,im.alt);});
+        gmGrid.appendChild(im);
+      });
+      gm.classList.add('open'); gm.setAttribute('aria-hidden','false');
+    }
+    function closeGallery(){gm.classList.remove('open');gm.setAttribute('aria-hidden','true');}
+    document.querySelectorAll('.view-all').forEach(function(btn){
+      btn.addEventListener('click',function(){
+        var imgs=[]; try{imgs=JSON.parse(btn.getAttribute('data-gallery'));}catch(e){}
+        openGallery(imgs,btn.getAttribute('data-title'));
+      });
+    });
+    document.getElementById('galleryClose').addEventListener('click',closeGallery);
+
+    document.addEventListener('keydown',function(e){if(e.key==='Escape'){closeLightbox();closeGallery();}});
   </script>
 </body>
 </html>
