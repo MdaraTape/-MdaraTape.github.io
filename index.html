@@ -264,6 +264,22 @@
     .row-3 img{width:100%;height:auto;max-height:460px;object-fit:contain;border-radius:8px;cursor:zoom-in;display:block}
     @media(max-width:620px){.row-3{grid-template-columns:1fr;max-width:420px;margin-left:auto;margin-right:auto}}
 
+    /* Statix Electricity — standalone feature card (no screenshots) */
+    .statix-card{position:relative;overflow:hidden;margin-top:clamp(48px,7vw,80px);
+      padding:clamp(30px,4vw,48px);border-radius:20px;border:1px solid var(--line);
+      background:
+        radial-gradient(600px 240px at 85% -20%, rgba(79,140,255,0.18), transparent 60%),
+        linear-gradient(180deg, rgba(255,255,255,0.04), rgba(0,0,0,0.05));
+      box-shadow:0 20px 50px rgba(0,0,0,0.35);transition:transform .25s,border-color .25s,box-shadow .25s}
+    .statix-card:hover{transform:translateY(-4px);border-color:rgba(79,140,255,0.3);box-shadow:0 28px 64px rgba(0,0,0,0.45)}
+    .statix-card .statix-icon{width:60px;height:60px;border-radius:14px;display:flex;align-items:center;justify-content:center;
+      color:var(--accent);background:rgba(79,140,255,0.12);border:1px solid rgba(79,140,255,0.25);margin-bottom:18px}
+    .statix-card .pnum{color:var(--accent);font-weight:700;letter-spacing:1px}
+    .statix-card h3{font-family:var(--serif);font-size:clamp(1.5rem,3vw,2.1rem);margin:8px 0 14px;color:#fff}
+    .statix-card .desc{color:#d4dbe4;font-size:1.08rem;margin:0;max-width:64ch}
+    .statix-card .tags{margin-top:20px;display:flex;flex-wrap:wrap;gap:8px}
+    .statix-card .tags span{font-size:.8rem;color:var(--muted);border:1px solid var(--line);padding:5px 12px;border-radius:999px}
+
     .skills{display:flex;flex-wrap:wrap;gap:12px}
     .skills span{border:1px solid var(--line);background:var(--bg-soft);color:#d4dbe4;padding:11px 18px;border-radius:10px;
       font-size:.97rem;transition:border-color .2s,color .2s,transform .2s}
@@ -434,8 +450,8 @@
         <div class="info">
           <span class="pnum">04</span>
           <h3>Agrivus</h3>
-          <p class="desc">Agriculture management tool for smallholders: crop records, weather data, and practical advisory features — designed with low-connectivity UX in mind.</p>
-          <div class="tags"><span>AgriTech</span><span>Offline-first</span><span>Weather data</span><span>Advisory</span></div>
+          <p class="desc">A collaborative team project — an agriculture management tool offering crop records, weather data, and practical advisory features, designed with low-connectivity UX in mind. Built together with a development team.</p>
+          <div class="tags"><span>Team project</span><span>AgriTech</span><span>Offline-first</span><span>Weather data</span><span>Advisory</span></div>
         </div>
         <div class="media">
           <div class="shelf few">
@@ -445,13 +461,14 @@
         </div>
       </article>
 
-      <article class="project reveal" id="statix-electricity" style="grid-template-columns:1fr">
-        <div class="info">
-          <span class="pnum">05</span>
-          <h3>Statix Electricity</h3>
-          <p class="desc">Monitoring and maintenance dashboard for electrical networks — incident logging, alerting, and simple analytics to track faults and maintenance windows.</p>
-          <div class="tags"><span>Dashboard</span><span>Alerting</span><span>Analytics</span></div>
+      <article class="reveal statix-card" id="statix-electricity">
+        <div class="statix-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z"/></svg>
         </div>
+        <span class="pnum">05</span>
+        <h3>Statix Electricity</h3>
+        <p class="desc">Monitoring and maintenance dashboard for electrical networks — incident logging, alerting, and simple analytics to track faults and maintenance windows.</p>
+        <div class="tags"><span>Dashboard</span><span>Alerting</span><span>Analytics</span></div>
       </article>
     </div>
   </section>
