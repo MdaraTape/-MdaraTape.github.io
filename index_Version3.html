@@ -177,37 +177,37 @@
     .shelf.few img{height:auto;width:100%;max-width:360px}
     .shelf-hint{color:var(--muted);font-size:.82rem;margin:4px 0 0}
 
-    /* Barber Force — glassmorphism tile + landing image (equal height) */
+    /* Barber Force — glass tile sizes to content; image matches the tile's height */
     #the-barber-force{align-items:stretch}
     .glass-info{
       background:rgba(255,255,255,0.025);
       border:1px solid rgba(255,255,255,0.12);
-      border-radius:18px;padding:clamp(26px,3vw,38px);
+      border-radius:18px;padding:clamp(24px,2.6vw,34px);
       backdrop-filter:blur(22px) saturate(160%);
       -webkit-backdrop-filter:blur(22px) saturate(160%);
       box-shadow:0 18px 44px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.08);
-      display:flex;flex-direction:column;height:100%;
     }
     .glass-info .pnum{margin-bottom:4px}
     .glass-info h3{margin-top:0}
-    /* middle: description grows to fill, keeping tags+button at the bottom */
-    .glass-info .desc{margin:0 0 auto}
-    .glass-info .tags{margin-top:26px}
-    .view-all{margin-top:26px;align-self:flex-start;display:inline-flex;align-items:center;gap:9px;cursor:pointer;
-      background:var(--accent);color:#fff;border:none;border-radius:12px;padding:13px 22px;
-      font-size:.98rem;font-weight:600;font-family:var(--sans);
+    .glass-info .desc{margin:0}
+    .glass-info .tags{margin-top:18px}
+    .view-all{margin-top:22px;display:inline-flex;align-items:center;gap:9px;cursor:pointer;
+      background:var(--accent);color:#fff;border:none;border-radius:12px;padding:12px 20px;
+      font-size:.95rem;font-weight:600;font-family:var(--sans);
       transition:background .18s,transform .18s,box-shadow .18s;box-shadow:0 10px 26px rgba(79,140,255,0.3)}
     .view-all:hover{background:var(--accent-2);transform:translateY(-2px);box-shadow:0 14px 34px rgba(79,140,255,0.42)}
     .view-all svg{transition:transform .18s}
     .view-all:hover svg{transform:translateX(3px)}
-    .media .landing{margin:0;height:100%}
-    .media .landing img{width:100%;height:100%;min-height:420px;object-fit:cover;
+    /* image column: fill the row's (tile-driven) height, never force it taller */
+    .media{height:100%;display:flex;justify-content:center;overflow:hidden;border-radius:18px}
+    .media .landing{margin:0;height:100%;display:flex}
+    .media .landing img{height:100%;width:auto;max-width:100%;object-fit:contain;
       border-radius:18px;border:1px solid var(--line);background:var(--panel);
       box-shadow:0 20px 50px rgba(0,0,0,0.45)}
     @media(max-width:860px){
-      .glass-info{height:auto}
-      .media .landing,.media .landing img{height:auto}
-      .media .landing img{min-height:0;aspect-ratio:9/16;max-width:420px;margin:0 auto}
+      #the-barber-force{align-items:start}
+      .media,.media .landing{height:auto}
+      .media .landing img{height:auto;width:100%;max-width:420px;margin:0 auto;object-fit:cover}
     }
 
     /* Gallery modal (view all images) */
